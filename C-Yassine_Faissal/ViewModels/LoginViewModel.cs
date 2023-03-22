@@ -18,6 +18,7 @@ using Microsoft.EntityFrameworkCore.Sqlite;
 
 namespace C_Yassine_Faissal.ViewModels
 {
+
     public class LoginViewModel : ViewModelBase
     {
         private string _email;
@@ -36,7 +37,7 @@ namespace C_Yassine_Faissal.ViewModels
         }
 
         public ICommand LoginCommand { get; }
-
+        public ICommand GuestLoginCommand { get; }
         private LibraryContext _context;
         public LoginViewModel()
         {
@@ -47,33 +48,40 @@ namespace C_Yassine_Faissal.ViewModels
             _context.Database.EnsureCreated(); // Only call EnsureCreated()
 
             LoginCommand = new RelayCommand(obj => Login(), obj => CanLogin(obj));
+            GuestLoginCommand = new RelayCommand(obj => GuestLogin());
         }
 
+        private void GuestLogin()
+        {
+            // Navigate to the main window as a guest
+            var mainView = new MainWindow(false, false);
+            mainView.Show();
+            CloseAction?.Invoke();
+        }
 
 
         public Action CloseAction { get; set; }
 
         private void Login()
         {
+            var user = _context.Users.FirstOrDefault(u => u.Email == Email && u.Password == Password);
+            if (user != null)
             {
+                bool isAdmin = user.Role == UserRole.Admin;
+                bool isEmployee = user.Role == UserRole.Employee;
 
-                var user = _context.Users.FirstOrDefault(u => u.Email == Email && u.Password == Password);
-                if (user != null)
-                {
-
-                    // Gebruiker succesvol gevalideerd, navigeer naar hoofdscherm
-                    var mainView = new MainWindow();
-                    mainView.Show();
-                    CloseAction?.Invoke(); 
-
-                }
-                else
-                {
-                    // Toon foutmelding
-                    MessageBox.Show("Invalid email or password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                var mainView = new MainWindow(isAdmin, isEmployee); // Use the new constructor
+                CloseAction?.Invoke();
+                mainView.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid email or password.", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
+
         private bool CanLogin(object obj)
         {
             return !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password);
