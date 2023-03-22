@@ -7,30 +7,30 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="LoginWindow.xaml.cs">
+    <Compile Update="Views\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="LoginWindow.xaml">
+    <Page Update="Views\LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Popups\CreateBookPopup.xaml">
+    <Page Update="Views\Popups\CreateItemPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Popups\CreateUserPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Popups\DeleteBookPopup.xaml">
+    <Page Update="Views\Popups\DeleteItemPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Popups\DeleteUserPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Popups\UpdateBookPopup.xaml">
+    <Page Update="Views\Popups\UpdateItemPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Popups\UpdateUserPopup.xaml">

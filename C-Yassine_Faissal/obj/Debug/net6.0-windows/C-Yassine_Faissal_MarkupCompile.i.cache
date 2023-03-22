@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\App.xaml
-10986018889
+10-497740495
 
-441327741419
-229752480375
-LoginWindow.xaml;MainWindow.xaml;Views\Popups\CreateBookPopup.xaml;Views\Popups\CreateUserPopup.xaml;Views\Popups\DeleteBookPopup.xaml;Views\Popups\DeleteUserPopup.xaml;Views\Popups\UpdateBookPopup.xaml;Views\Popups\UpdateUserPopup.xaml;Views\Search.xaml;Views\test.xaml;
+48-1581811517
+235238161865
+MainWindow.xaml;Views\LoginWindow.xaml;Views\Popups\CreateItemPopup.xaml;Views\Popups\CreateUserPopup.xaml;Views\Popups\DeleteItemPopup.xaml;Views\Popups\DeleteUserPopup.xaml;Views\Popups\UpdateItemPopup.xaml;Views\Popups\UpdateUserPopup.xaml;Views\Search.xaml;Views\test.xaml;
 
 False
 

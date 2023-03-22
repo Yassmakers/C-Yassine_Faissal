@@ -5,8 +5,13 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using C_Yassine_Faissal.Commands;
+using C_Yassine_Faissal.Views;
+using C_Yassine_Faissal.ViewModels;
 
-public class MainViewModel : ObservableObject
+
+
+public class MainViewModel : ViewModelBase
 {
     private readonly LibraryContext _context;
     private ObservableCollection<Item> _items;

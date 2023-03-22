@@ -1,6 +1,7 @@
 ﻿<Window x:Class="C_Yassine_Faissal.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:C_Yassine_Faissal.ViewModels"
         xmlns:local="clr-namespace:C_Yassine_Faissal"
         Title="MainWindow" Height="450" Width="800">
     <ScrollViewer>
@@ -12,7 +13,6 @@
             <StackPanel Grid.Column="0" Background="Gray" Width="200">
                 <TextBlock Text="Library Management" FontSize="18" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="10" Height="28" Width="185" />
                 <Separator Margin="10" />
-                <Button x:Name="LoginButton" Content="Login" Margin="10" Click="LoginButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
                 <Expander Header="Users" Background="Transparent" Foreground="White" FontWeight="Bold">
                     <StackPanel>
                         <Button x:Name="CreateUserButton" Content="Create User" Margin="10" Click="CreateUserButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
@@ -20,10 +20,10 @@
                         <Button x:Name="DeleteUserButton" Content="Delete User" Margin="10" Click="DeleteUserButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
                     </StackPanel>
                 </Expander>
-                <Expander Header="Books" Background="Transparent" Foreground="White" FontWeight="Bold">
+                <Expander Header="Items" Background="Transparent" Foreground="White" FontWeight="Bold">
                     <StackPanel>
-                        <Button x:Name="CreateBookButton" Content="Create Book" Margin="10" Click="CreateBookButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
-                        <Button x:Name="UpdateBookButton" Content="Update Book" Margin="10" Click="UpdateBookButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+                        <Button x:Name="CreateItemButton" Content="Create Book" Margin="10" Click="CreateItemButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+                        <Button x:Name="UpdateItemButton" Content="Update Book" Margin="10" Click="UpdateItemButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
                     </StackPanel>
                 </Expander>
             </StackPanel>

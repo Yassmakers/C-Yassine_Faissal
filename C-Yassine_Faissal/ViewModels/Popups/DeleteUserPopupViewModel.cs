@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using C_Yassine_Faissal.Commands;
 
 
 namespace C_Yassine_Faissal.ViewModels.Popups

@@ -19,8 +19,9 @@ namespace C_Yassine_Faissal
         private Frame _contentFrame;
 
         private LibraryContext _libraryContext;
+        public DbSet<User> Users { get; set; }
 
-    public MainWindow()
+        public MainWindow()
 
         {
             InitializeComponent();
@@ -36,8 +37,8 @@ namespace C_Yassine_Faissal
                 CreateUserButton.Visibility = (isAdmin || isEmployee) ? Visibility.Visible : Visibility.Collapsed;
                 UpdateUserButton.Visibility = (isAdmin || isEmployee) ? Visibility.Visible : Visibility.Collapsed;
                 DeleteUserButton.Visibility = (isAdmin || isEmployee) ? Visibility.Visible : Visibility.Collapsed;
-                CreateBookButton.Visibility = (isAdmin || isEmployee) ? Visibility.Visible : Visibility.Collapsed;
-                UpdateBookButton.Visibility = (isAdmin || isEmployee) ? Visibility.Visible : Visibility.Collapsed;
+                CreateItemButton.Visibility = (isAdmin || isEmployee) ? Visibility.Visible : Visibility.Collapsed;
+                UpdateItemButton.Visibility = (isAdmin || isEmployee) ? Visibility.Visible : Visibility.Collapsed;
             }
             else
             {
@@ -82,10 +83,7 @@ namespace C_Yassine_Faissal
         }
 
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            LoadContent(new C_Yassine_Faissal.LoginWindow());
-        }
+        
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
@@ -109,15 +107,15 @@ namespace C_Yassine_Faissal
             LoadContent(new C_Yassine_Faissal.Views.Popups.DeleteUserPopup());
         }
 
-        private void CreateBookButton_Click(object sender, RoutedEventArgs e)
+        private void CreateItemButton_Click(object sender, RoutedEventArgs e)
         {
-            LoadContent(new Views.Popups.CreateBookPopup());
+            LoadContent(new Views.Popups.CreateItemPopup());
         }
 
 
-        private void UpdateBookButton_Click(object sender, RoutedEventArgs e)
+        private void UpdateItemButton_Click(object sender, RoutedEventArgs e)
         {
-            LoadContent(new C_Yassine_Faissal.Views.Popups.UpdateBookPopup());
+            LoadContent(new C_Yassine_Faissal.Views.Popups.UpdateItemPopup());
         }
 
 
