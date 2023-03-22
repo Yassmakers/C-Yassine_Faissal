@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\App.xaml
 10-497740495
 
-58-1221310837
+60-742287043
 235238161865
 MainWindow.xaml;Views\LoginWindow.xaml;Views\Popups\CreateItemPopup.xaml;Views\Popups\CreateUserPopup.xaml;Views\Popups\DeleteItemPopup.xaml;Views\Popups\DeleteUserPopup.xaml;Views\Popups\UpdateItemPopup.xaml;Views\Popups\UpdateUserPopup.xaml;Views\Search.xaml;Views\test.xaml;
 
-False
+True
 

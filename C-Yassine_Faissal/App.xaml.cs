@@ -37,9 +37,21 @@ namespace C_Yassine_Faissal
 
             serviceProvider = services.BuildServiceProvider();
 
-            // Create and show the main window
-            var mainWindow = serviceProvider.GetRequiredService<MainWindow>();
-            mainWindow.Show();
+            // Show the login window first
+            var loginWindow = new LoginWindow();
+            bool? loginResult = loginWindow.ShowDialog();
+
+            if (loginResult == true)
+            {
+                // Create and show the main window
+                var mainWindow = serviceProvider.GetRequiredService<MainWindow>();
+                mainWindow.Show();
+            }
+            else
+            {
+                // Exit the application if the login is unsuccessful or canceled
+                Shutdown();
+            }
         }
     }
 }

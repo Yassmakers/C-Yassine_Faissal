@@ -10,6 +10,6 @@ namespace C_Yassine_Faissal.Models
     {
         Admin,
         Employee,
-        User
+        Guest
     }
 }

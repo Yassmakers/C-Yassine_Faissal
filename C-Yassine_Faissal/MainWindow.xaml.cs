@@ -17,33 +17,20 @@ namespace C_Yassine_Faissal
     public partial class MainWindow : Window
     {
         private Frame _contentFrame;
-
         private LibraryContext _libraryContext;
         public DbSet<User> Users { get; set; }
 
-        public MainWindow()
-
+        public bool IsAdmin { get; set; }
+        public bool IsEmployee { get; set; }
+        public MainWindow() : this(false, false) { }
+        public MainWindow(bool isAdmin, bool isEmployee)
         {
             InitializeComponent();
 
-            var loginWindow = new LoginWindow();
-            if (loginWindow.ShowDialog() == true)
-            {
-                // TODO: Check user role here and show/hide buttons accordingly
-                // For example:
-                bool isAdmin = true; // Replace this with the actual check for the user role
-                bool isEmployee = true; // Replace this with the actual check for the user role
+            
 
-                CreateUserButton.Visibility = (isAdmin || isEmployee) ? Visibility.Visible : Visibility.Collapsed;
-                UpdateUserButton.Visibility = (isAdmin || isEmployee) ? Visibility.Visible : Visibility.Collapsed;
-                DeleteUserButton.Visibility = (isAdmin || isEmployee) ? Visibility.Visible : Visibility.Collapsed;
-                CreateItemButton.Visibility = (isAdmin || isEmployee) ? Visibility.Visible : Visibility.Collapsed;
-                UpdateItemButton.Visibility = (isAdmin || isEmployee) ? Visibility.Visible : Visibility.Collapsed;
-            }
-            else
-            {
-                Application.Current.Shutdown();
-            }
+            IsAdmin = isAdmin;
+            IsEmployee = isEmployee;
 
             var optionsBuilder = new DbContextOptionsBuilder<LibraryContext>();
             optionsBuilder.UseSqlServer(GetConnectionString());
@@ -52,6 +39,16 @@ namespace C_Yassine_Faissal
             _contentFrame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
             MainContent.Children.Add(_contentFrame);
 
+            CreateUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
+            UpdateUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
+            DeleteUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
+            CreateItemButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
+            UpdateItemButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            _loginWindow?.Close(); // Close the LoginWindow when MainWindow is closed
         }
         private async Task CreateUserAsync(User newUser)
         {
@@ -105,6 +102,11 @@ namespace C_Yassine_Faissal
         private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
         {
             LoadContent(new C_Yassine_Faissal.Views.Popups.DeleteUserPopup());
+        }
+
+        private void DeleteItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoadContent(new C_Yassine_Faissal.Views.Popups.DeleteItemPopup());
         }
 
         private void CreateItemButton_Click(object sender, RoutedEventArgs e)

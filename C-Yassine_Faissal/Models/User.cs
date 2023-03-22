@@ -15,6 +15,7 @@ namespace C_Yassine_Faissal.Models
         [StringLength(100, ErrorMessage = "Password cannot be longer than 100 characters.")]
         public string Password { get; set; }
 
+        public bool IsGuest { get; set; }
         public UserRole Role { get; set; }
     }
 }
