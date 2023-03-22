@@ -1,4 +1,5 @@
 ﻿using C_Yassine_Faissal.ViewModels;
+using System;
 using System.Windows;
 
 namespace C_Yassine_Faissal
@@ -11,10 +12,23 @@ namespace C_Yassine_Faissal
         public LoginWindow()
         {
             InitializeComponent();
-            DataContext = new LoginViewModel(); // zet de DataContext hier aub
+            DataContext = new LoginViewModel();
+            (DataContext as LoginViewModel).CloseAction = new Action(() => this.Close());
         }
 
-
+        private void GuestLoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var mainWindow = new MainWindow(false, false, this); // Pass the LoginWindow instance
+                mainWindow.Show();
+                this.Hide(); // Hide the LoginWindow instead of closing it
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             var viewModel = DataContext as LoginViewModel;
@@ -25,8 +39,10 @@ namespace C_Yassine_Faissal
             {
                 viewModel.LoginCommand.Execute(null);
                 DialogResult = true;
-                Close();
             }
         }
     }
-    }
+}
+
+
+
