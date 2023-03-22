@@ -38,15 +38,18 @@ namespace C_Yassine_Faissal.ViewModels
         public ICommand LoginCommand { get; }
 
         private LibraryContext _context;
-
         public LoginViewModel()
         {
             var optionsBuilder = new DbContextOptionsBuilder<LibraryContext>();
-            optionsBuilder.UseSqlite("Data Source=library.db");
+            string dbPath = System.IO.Path.Combine(AppContext.BaseDirectory, "library.db");
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
             _context = new LibraryContext(optionsBuilder.Options);
+            _context.Database.EnsureCreated(); // Only call EnsureCreated()
 
             LoginCommand = new RelayCommand(obj => Login(), obj => CanLogin(obj));
         }
+
+
 
         public Action CloseAction { get; set; }
 

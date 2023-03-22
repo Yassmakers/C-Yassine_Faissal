@@ -16,6 +16,8 @@ namespace C_Yassine_Faissal.Data
 
         // Add other DbSet properties as needed
 
+     
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Item>().ToTable("Item");
