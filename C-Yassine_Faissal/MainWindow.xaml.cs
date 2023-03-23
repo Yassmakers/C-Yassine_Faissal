@@ -9,14 +9,12 @@ using Microsoft.EntityFrameworkCore;
 using C_Yassine_Faissal.Models;
 using C_Yassine_Faissal.Data;
 
-// ...
-
-
 namespace C_Yassine_Faissal
 {
     public partial class MainWindow : Window
     {
         private Frame _contentFrame;
+
         private LibraryContext _libraryContext;
         public DbSet<User> Users { get; set; }
 
@@ -27,13 +25,11 @@ namespace C_Yassine_Faissal
         {
             InitializeComponent();
 
-            
-
             IsAdmin = isAdmin;
             IsEmployee = isEmployee;
 
             var optionsBuilder = new DbContextOptionsBuilder<LibraryContext>();
-            optionsBuilder.UseSqlServer(GetConnectionString());
+            optionsBuilder.UseSqlite(GetConnectionString());
             _libraryContext = new LibraryContext(optionsBuilder.Options);
             _contentFrame = new Frame();
             _contentFrame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
@@ -46,9 +42,11 @@ namespace C_Yassine_Faissal
             UpdateItemButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        private void MainWindow_Closed(object sender, EventArgs e)
+        // 
+
+private void MainWindow_Closed(object sender, EventArgs e)
         {
-            _loginWindow?.Close(); // Close the LoginWindow when MainWindow is closed
+            this.Owner?.Show(); // Show the LoginWindow when the MainWindow is closed
         }
         private async Task CreateUserAsync(User newUser)
         {

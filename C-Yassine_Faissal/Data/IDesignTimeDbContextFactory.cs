@@ -18,7 +18,8 @@ namespace C_Yassine_Faissal.Data
 
             var connectionString = configuration.GetConnectionString("LibraryDatabase");
 
-            builder.UseSqlServer(connectionString);
+            builder.UseSqlite(connectionString);
+
 
             return new LibraryContext(builder.Options);
         }

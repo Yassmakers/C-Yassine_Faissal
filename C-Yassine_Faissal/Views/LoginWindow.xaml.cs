@@ -18,17 +18,12 @@ namespace C_Yassine_Faissal
 
         private void GuestLoginButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var mainWindow = new MainWindow(false, false, this); // Pass the LoginWindow instance
-                mainWindow.Show();
-                this.Hide(); // Hide the LoginWindow instead of closing it
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            var mainWindow = new MainWindow(false, false);
+            mainWindow.Show();
+            Close();
         }
+
+
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             var viewModel = DataContext as LoginViewModel;
@@ -38,11 +33,9 @@ namespace C_Yassine_Faissal
             if (viewModel.LoginCommand.CanExecute(null))
             {
                 viewModel.LoginCommand.Execute(null);
-                DialogResult = true;
+                Close();
             }
+
         }
     }
 }
-
-
-

@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Bogus;
 using System.IO;
 using C_Yassine_Faissal.Data;
+using System;
 
 namespace C_Yassine_Faissal
 {
@@ -18,16 +19,10 @@ namespace C_Yassine_Faissal
         {
             base.OnStartup(e);
 
-            // Configure services and DbContext here
-            var configurationBuilder = new ConfigurationBuilder()
-         .SetBasePath(Directory.GetCurrentDirectory())
-         .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-            IConfiguration configuration = configurationBuilder.Build();
-            string connectionString = configuration.GetConnectionString("DefaultConnection");
-
             services.AddDbContext<LibraryContext>(options =>
             {
-                options.UseSqlServer(connectionString);
+                string dbPath = @"C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\bin\Debug\net6.0-windows\library.db";
+                options.UseSqlite($"Data Source={dbPath}");
             });
 
             // Register other services, e.g., ViewModels, repositories, etc.
@@ -37,21 +32,22 @@ namespace C_Yassine_Faissal
 
             serviceProvider = services.BuildServiceProvider();
 
+            using (var scope = serviceProvider.CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<LibraryContext>();
+                context.EnsureDatabaseCreated();
+            }
+
             // Show the login window first
             var loginWindow = new LoginWindow();
-            bool? loginResult = loginWindow.ShowDialog();
+            loginWindow.ShowDialog();
 
-            if (loginResult == true)
-            {
-                // Create and show the main window
-                var mainWindow = serviceProvider.GetRequiredService<MainWindow>();
-                mainWindow.Show();
-            }
-            else
-            {
-                // Exit the application if the login is unsuccessful or canceled
-                Shutdown();
-            }
+            // Create and show the main window
+            var mainWindow = serviceProvider.GetRequiredService<MainWindow>();
+            mainWindow.Show();
+
+            // Close the login window
+            loginWindow.Close();
         }
     }
 }

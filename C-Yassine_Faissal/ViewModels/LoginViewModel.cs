@@ -42,10 +42,9 @@ namespace C_Yassine_Faissal.ViewModels
         public LoginViewModel()
         {
             var optionsBuilder = new DbContextOptionsBuilder<LibraryContext>();
-            string dbPath = System.IO.Path.Combine(AppContext.BaseDirectory, "library.db");
+            string dbPath = @"C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\bin\Debug\net6.0-windows\library.db";
             optionsBuilder.UseSqlite($"Data Source={dbPath}");
             _context = new LibraryContext(optionsBuilder.Options);
-            _context.Database.EnsureCreated(); // Only call EnsureCreated()
 
             LoginCommand = new RelayCommand(obj => Login(), obj => CanLogin(obj));
             GuestLoginCommand = new RelayCommand(obj => GuestLogin());
