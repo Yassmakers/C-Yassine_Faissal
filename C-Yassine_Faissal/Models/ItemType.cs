@@ -8,8 +8,10 @@ namespace C_Yassine_Faissal.Models
 {
     public enum ItemType
     {
+        None,
         Book,
         CD,
-        DVD
+        DVD,
+        Game
     }
 }

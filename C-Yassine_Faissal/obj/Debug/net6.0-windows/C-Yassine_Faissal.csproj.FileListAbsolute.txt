@@ -93,3 +93,6 @@ C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\C-Yassine_Faissal.pdb
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\C-Yassine_Faissal.genruntimeconfig.cache
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\ref\C-Yassine_Faissal.dll
+C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\ItemsView.baml
+C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\ItemsView.g.cs

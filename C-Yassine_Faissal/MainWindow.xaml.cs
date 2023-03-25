@@ -8,6 +8,8 @@ using System.IO;
 using Microsoft.EntityFrameworkCore;
 using C_Yassine_Faissal.Models;
 using C_Yassine_Faissal.Data;
+using C_Yassine_Faissal.ViewModels.Popups;
+using C_Yassine_Faissal.Views;
 
 namespace C_Yassine_Faissal
 {
@@ -20,8 +22,10 @@ namespace C_Yassine_Faissal
 
         public bool IsAdmin { get; set; }
         public bool IsEmployee { get; set; }
-        public MainWindow() : this(false, false) { }
-        public MainWindow(bool isAdmin, bool isEmployee)
+
+        private ItemsView _itemsView;
+
+        public MainWindow(bool isAdmin = false, bool isEmployee = false)
         {
             InitializeComponent();
 
@@ -35,16 +39,26 @@ namespace C_Yassine_Faissal
             _contentFrame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
             MainContent.Children.Add(_contentFrame);
 
+            // Pass the ItemsViewModel from MainViewModel to the ItemsView
+            var mainViewModel = new MainViewModel(_libraryContext);
+            DataContext = mainViewModel;
+            _itemsView = new ItemsView(mainViewModel.ItemsViewModel);
+
             CreateUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
             UpdateUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
             DeleteUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
             CreateItemButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
             UpdateItemButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
+            DeleteItemButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed; // 
+
+            // Load ItemsView by default
+            _contentFrame.Content = _itemsView;
         }
+    
 
         // 
 
-private void MainWindow_Closed(object sender, EventArgs e)
+        private void MainWindow_Closed(object sender, EventArgs e)
         {
             this.Owner?.Show(); // Show the LoginWindow when the MainWindow is closed
         }
@@ -68,9 +82,21 @@ private void MainWindow_Closed(object sender, EventArgs e)
             return configuration.GetConnectionString("LibraryDatabase");
         }
 
-        
+        private void UpdateItemButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            var updateItemPopup = new UpdateItemPopup(new UpdateItemPopupViewModel(_libraryContext));
+            updateItemPopup.Owner = this;
+            updateItemPopup.ShowDialog();
+        }
 
-  
+
+        private void DeleteItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            var deleteItemPopup = new DeleteItemPopup(new UpdateItemPopupViewModel(_libraryContext));
+            deleteItemPopup.Owner = this;
+            deleteItemPopup.ShowDialog();
+        }
+
 
         private void LoadContent(ContentControl content)
         {
@@ -78,12 +104,7 @@ private void MainWindow_Closed(object sender, EventArgs e)
         }
 
 
-        
-
-        private void SearchButton_Click(object sender, RoutedEventArgs e)
-        {
-            LoadContent(new C_Yassine_Faissal.Views.Search());
-        }
+       
 
         private void CreateUserButton_Click(object sender, RoutedEventArgs e)
         {
@@ -102,21 +123,15 @@ private void MainWindow_Closed(object sender, EventArgs e)
             LoadContent(new C_Yassine_Faissal.Views.Popups.DeleteUserPopup());
         }
 
-        private void DeleteItemButton_Click(object sender, RoutedEventArgs e)
-        {
-            LoadContent(new C_Yassine_Faissal.Views.Popups.DeleteItemPopup());
-        }
 
         private void CreateItemButton_Click(object sender, RoutedEventArgs e)
         {
-            LoadContent(new Views.Popups.CreateItemPopup());
+            var createItemPopup = new CreateItemPopup(_libraryContext);
+            createItemPopup.Owner = this;
+            createItemPopup.ShowDialog();
         }
 
 
-        private void UpdateItemButton_Click(object sender, RoutedEventArgs e)
-        {
-            LoadContent(new C_Yassine_Faissal.Views.Popups.UpdateItemPopup());
-        }
 
 
 

@@ -100,7 +100,7 @@ namespace C_Yassine_Faissal {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/C-Yassine_Faissal;component/views/popups/createuserpopup.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/C-Yassine_Faissal;V1.0.0.0;component/views/popups/createuserpopup.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Popups\CreateUserPopup.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

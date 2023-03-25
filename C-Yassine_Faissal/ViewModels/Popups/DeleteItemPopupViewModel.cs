@@ -2,36 +2,29 @@
 using C_Yassine_Faissal.ViewModels;
 using System.Windows.Input;
 using C_Yassine_Faissal.Models;
-
-
+using C_Yassine_Faissal.Data;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace C_Yassine_Faissal.ViewModels.Popups
+{
+    public class DeleteItemPopupViewModel : ViewModelBase
     {
-        public class DeleteItemPopupViewModel : ViewModelBase
-    {
-            private string _name;
+        private readonly LibraryContext _libraryContext;
 
-            public string Name
+        public DeleteItemPopupViewModel(LibraryContext libraryContext)
+        {
+            _libraryContext = libraryContext;
+        }
+
+        public async Task DeleteItemByTitleAsync(string title)
+        {
+            var item = _libraryContext.Items.FirstOrDefault(i => i.Title == title);
+            if (item != null)
             {
-                get => _name;
-                set => SetProperty(ref _name, value);
-            }
-
-            public ICommand CreateUserCommand { get; }
-
-            public DeleteItemPopupViewModel()
-            {
-                CreateUserCommand = new RelayCommand(DeleteItem, CanDeleteItem);
-            }
-
-            private void DeleteItem(object obj)
-            {
-                // Add logic to create a new user
-            }
-
-            private bool CanDeleteItem(object obj)
-            {
-                return !string.IsNullOrEmpty(Name);
+                _libraryContext.Items.Remove(item);
+                await _libraryContext.SaveChangesAsync();
             }
         }
     }
+}

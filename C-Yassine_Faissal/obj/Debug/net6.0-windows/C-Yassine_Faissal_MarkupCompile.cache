@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\App.xaml
-10-497740495
+111566793330
 
-461259154438
+50794165259
 219258409930
-MainWindow.xaml;Views\LoginWindow.xaml;Views\Popups\CreateItemPopup.xaml;Views\Popups\CreateUserPopup.xaml;Views\Popups\DeleteItemPopup.xaml;Views\Popups\DeleteUserPopup.xaml;Views\Popups\UpdateItemPopup.xaml;Views\Popups\UpdateUserPopup.xaml;Views\Search.xaml;Views\test.xaml;
+MainWindow.xaml;Views\ItemsView.xaml;Views\LoginWindow.xaml;Views\Popups\CreateItemPopup.xaml;Views\Popups\CreateUserPopup.xaml;Views\Popups\DeleteItemPopup.xaml;Views\Popups\DeleteUserPopup.xaml;Views\Popups\UpdateItemPopup.xaml;Views\Popups\UpdateUserPopup.xaml;Views\Search.xaml;Views\test.xaml;
 
 False
 

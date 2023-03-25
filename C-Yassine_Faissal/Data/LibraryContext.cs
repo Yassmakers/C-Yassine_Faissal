@@ -1,6 +1,9 @@
 ﻿using C_Yassine_Faissal.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.ObjectModel;
 using System.Linq;
+using C_Yassine_Faissal.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace C_Yassine_Faissal.Data
 {
@@ -32,6 +35,11 @@ namespace C_Yassine_Faissal.Data
 
         private void SeedData()
         {
+            // Seed authors
+            Authors.Add(new Author { Id = 1, Name = "John Doe" });
+            Authors.Add(new Author { Id = 2, Name = "Jane Smith" });
+
+            // Seed users
             Users.Add(new User
             {
                 Id = 1,
@@ -56,6 +64,35 @@ namespace C_Yassine_Faissal.Data
 
             SaveChanges();
         }
+
+
+        public void UpdateItem(Item updatedItem)
+        {
+            var existingItem = Items.FirstOrDefault(i => i.Id == updatedItem.Id);
+
+            if (existingItem != null)
+            {
+                existingItem.Title = updatedItem.Title;
+                existingItem.Description = updatedItem.Description;
+                existingItem.ItemType = updatedItem.ItemType;
+                existingItem.AuthorId = updatedItem.AuthorId;
+                existingItem.ItemStatus = updatedItem.ItemStatus;
+
+                SaveChanges();
+            }
+        }
+
+        public void DeleteItem(int itemId)
+        {
+            var itemToDelete = Items.FirstOrDefault(i => i.Id == itemId);
+
+            if (itemToDelete != null)
+            {
+                Items.Remove(itemToDelete);
+                SaveChanges();
+            }
+        }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
