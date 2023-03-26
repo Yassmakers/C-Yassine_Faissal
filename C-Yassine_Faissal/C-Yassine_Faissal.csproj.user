@@ -13,10 +13,19 @@
     <Compile Update="Views\LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Popups\CreateAuthorPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Popups\CreateItemPopup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Popups\DeleteAuthorPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Popups\DeleteItemPopup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Popups\UpdateAuthorPopup.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Popups\UpdateItemPopup.xaml.cs">
@@ -33,16 +42,25 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Popups\CreateAuthorPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Popups\CreateItemPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Popups\CreateUserPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Popups\DeleteAuthorPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Popups\DeleteItemPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Popups\DeleteUserPopup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Popups\UpdateAuthorPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Popups\UpdateItemPopup.xaml">

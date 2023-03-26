@@ -18,10 +18,13 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <TextBox x:Name="SearchBox" Grid.Column="0" Width="200" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" />
             <Button x:Name="SearchButton" Grid.Column="1" Content="Search" Margin="10,0,0,0" Command="{Binding SearchCommand}" />
-            <Button x:Name="RefreshButton" Grid.Column="2" Content="Refresh" Margin="10,0,0,0" Click="RefreshButton_Click" />
+            <Button x:Name="FilterButton" Grid.Column="3" Content="Filter" Margin="10,0,0,0" Click="FilterButton_Click" />
+            <ComboBox  x:Name="FilterComboBox" Grid.Column="2" ItemsSource="{Binding FilterOptions}"  SelectedValue="{Binding FilterType, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,0,0"/>
+            <Button x:Name="RefreshButton" Grid.Column="3" Content="Refresh" Margin="10,0,0,0" Click="RefreshButton_Click" />
         </Grid>
 
         <!-- Items list -->

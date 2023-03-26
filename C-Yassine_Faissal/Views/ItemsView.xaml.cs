@@ -15,7 +15,10 @@ namespace C_Yassine_Faissal.Views
             DataContext = itemsViewModel;
         }
 
-
+        private void FilterButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReloadItems();
+        }
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
             ReloadItems();

@@ -96,3 +96,9 @@ C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\ItemsView.baml
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\ItemsView.g.cs
+C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Popups\CreateAuthorPopup.baml
+C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Popups\UpdateAuthorPopup.baml
+C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Popups\CreateAuthorPopup.g.cs
+C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Popups\DeleteAuthorPopup.g.cs
+C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Popups\UpdateAuthorPopup.g.cs
+C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Popups\DeleteAuthorPopup.baml

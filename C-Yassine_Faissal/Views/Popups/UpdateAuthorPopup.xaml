@@ -1,0 +1,20 @@
+﻿<Window x:Class="C_Yassine_Faissal.Views.Popups.UpdateAuthorPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="UpdateAuthorPopup" Height="300" Width="500">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Enter the name of the author you want to update:" FontWeight="Bold" Margin="10" />
+            <TextBox x:Name="SearchNameTextBox" Width="300" Margin="10" Text="{Binding SearchName, UpdateSourceTrigger=PropertyChanged}" />
+            <Button x:Name="SearchButton" Content="Search" Command="{Binding SearchCommand}" />
+
+            <TextBlock Text="Name:" FontWeight="Bold" Margin="10" />
+            <TextBox x:Name="NameTextBox" Width="300" Margin="10" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Button x:Name="SaveButton" Content="Save" Command="{Binding SaveCommand}" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -49,7 +49,10 @@ namespace C_Yassine_Faissal
             DeleteUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
             CreateItemButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
             UpdateItemButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
-            DeleteItemButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed; // 
+            DeleteItemButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
+            CreateAuthorButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
+            UpdateAuthorButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
+            DeleteAuthorButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
 
             // Load ItemsView by default
             _contentFrame.Content = _itemsView;
@@ -82,6 +85,14 @@ namespace C_Yassine_Faissal
             return configuration.GetConnectionString("LibraryDatabase");
         }
 
+
+        private void CreateItemButton_Click(object sender, RoutedEventArgs e)
+        {
+            var createItemPopup = new CreateItemPopup(_libraryContext);
+            createItemPopup.Owner = this;
+            createItemPopup.ShowDialog();
+        }
+
         private void UpdateItemButton_Click_1(object sender, RoutedEventArgs e)
         {
             var updateItemPopup = new UpdateItemPopup(new UpdateItemPopupViewModel(_libraryContext));
@@ -98,13 +109,30 @@ namespace C_Yassine_Faissal
         }
 
 
-        private void LoadContent(ContentControl content)
+
+        private void CreateAuthorButton_Click(object sender, RoutedEventArgs e)
         {
-            _contentFrame.Content = content;
+            var createAuthorPopup = new CreateAuthorPopup(_libraryContext);
+            createAuthorPopup.Owner = this;
+            createAuthorPopup.ShowDialog();
+        }
+
+        private void UpdateAuthorButton_Click(object sender, RoutedEventArgs e)
+        {
+            var updateAuthorPopup = new UpdateAuthorPopup(new UpdateAuthorPopupViewModel(_libraryContext));
+            updateAuthorPopup.Owner = this;
+            updateAuthorPopup.ShowDialog();
+        }
+
+        private void DeleteAuthorButton_Click(object sender, RoutedEventArgs e)
+        {
+            var deleteAuthorPopup = new DeleteAuthorPopup(new DeleteAuthorPopupViewModel(_libraryContext));
+            deleteAuthorPopup.Owner = this;
+            deleteAuthorPopup.ShowDialog();
         }
 
 
-       
+
 
         private void CreateUserButton_Click(object sender, RoutedEventArgs e)
         {
@@ -123,13 +151,18 @@ namespace C_Yassine_Faissal
             LoadContent(new C_Yassine_Faissal.Views.Popups.DeleteUserPopup());
         }
 
-
-        private void CreateItemButton_Click(object sender, RoutedEventArgs e)
+        private void LoadContent(ContentControl content)
         {
-            var createItemPopup = new CreateItemPopup(_libraryContext);
-            createItemPopup.Owner = this;
-            createItemPopup.ShowDialog();
+            _contentFrame.Content = content;
         }
+
+
+       
+
+
+
+
+
 
 
 

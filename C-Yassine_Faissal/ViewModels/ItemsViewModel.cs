@@ -8,6 +8,7 @@ using System.Windows.Input;
 using C_Yassine_Faissal.Data;
 using C_Yassine_Faissal.Models;
 using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace C_Yassine_Faissal.ViewModels
 {
@@ -77,13 +78,44 @@ namespace C_Yassine_Faissal.ViewModels
             }
         }
 
-    public ItemsViewModel(LibraryContext libraryContext)
+
+
+        private void FilterItems()
+        {
+            if (string.IsNullOrWhiteSpace(SearchText))
+            {
+                FilteredItems = new ObservableCollection<Item>(_libraryContext.Items.Include(i => i.Author).ToList());
+            }
+            else
+            {
+                FilteredItems = new ObservableCollection<Item>(
+                    _libraryContext.Items
+                    .Include(i => i.Author)
+                    .Where(i => i.Title.Contains(SearchText, StringComparison.OrdinalIgnoreCase) || i.Author.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase))
+                    .ToList());
+            }
+        }
+        public ItemsViewModel(LibraryContext libraryContext)
         {
             _libraryContext = libraryContext;
-            LoadItems();
+            FilterItems();
         }
 
-        public void LoadItems(string search = null) 
+        private string _filterType;
+        public string FilterType
+        {
+            get => _filterType;
+            set
+            {
+                _filterType = value;
+                OnPropertyChanged();
+                LoadItems(_searchText, _filterType);
+            }
+        }
+
+        public List<string> FilterOptions { get; set; } = new List<string> { "All", "Book", "CD", "DVD", "Game" }; // Add your item types here
+
+        public void LoadItems(string search = null, string filterType = null)
         {
             List<Item> items;
             if (string.IsNullOrEmpty(search))
@@ -94,6 +126,12 @@ namespace C_Yassine_Faissal.ViewModels
             {
                 items = _libraryContext.Items.Where(i => i.Title.Contains(search)).ToList();
             }
+
+            if (!string.IsNullOrEmpty(filterType) && filterType != "All")
+            {
+                items = items.Where(i => i.ItemType.ToString() == filterType).ToList();
+            }
+
             FilteredItems = new ObservableCollection<Item>(items);
         }
 

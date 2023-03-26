@@ -1,0 +1,21 @@
+﻿<Window x:Class="C_Yassine_Faissal.Views.Popups.CreateAuthorPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CreateAuthorPopup" Height="200" Width="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Name:"/>
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="NameTextBox" Margin="5" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Margin="5" Command="{Binding CreateCommand}" Content="Create Author"/>
+    </Grid>
+</Window>

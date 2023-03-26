@@ -23,6 +23,13 @@
                         <Button x:Name="DeleteUserButton" Content="Delete User" Margin="10" Click="DeleteUserButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
                     </StackPanel>
                 </Expander>
+                <Expander Header="Authors" Background="Transparent" Foreground="White" FontWeight="Bold">
+                    <StackPanel>
+                        <Button x:Name="CreateAuthorButton" Content="Create Author" Margin="10" Click="CreateAuthorButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+                        <Button x:Name="UpdateAuthorButton" Content="Update Author" Margin="10" Click="UpdateAuthorButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+                        <Button x:Name="DeleteAuthorButton" Content="Delete Author" Margin="10" Click="DeleteAuthorButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </Expander>
                 <Expander Header="Items" Background="Transparent" Foreground="White" FontWeight="Bold">
                     <StackPanel>
                         <Button x:Name="CreateItemButton" Content="Create Item" Margin="10" Click="CreateItemButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>

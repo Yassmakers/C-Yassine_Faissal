@@ -35,8 +35,9 @@
  Text="{Binding AuthorId, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToIntConverter}}" />
 
         <Label Content="Item Status:" Grid.Row="6" />
-        <ComboBox x:Name="ItemStatusComboBox" Grid.Row="7" SelectedItem="{Binding SelectedItemStatus}" ItemsSource="{Binding ItemStatuses}">
+        <ComboBox x:Name="ItemStatusComboBox" Grid.Row="7" SelectedItem="{Binding SelectedItemStatus}" ItemsSource="{Binding ItemStatuses}" DisplayMemberPath="Value">
         </ComboBox>
+
 
 
         <Label Content="Item Type:" Grid.Row="8" Margin="0,2,0,-20" />
