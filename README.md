@@ -90,11 +90,11 @@ Na het uitvoeren van de database migratie, kunt u het project opnieuw compileren
 
 - #### Gebruikers: Beheer de accounts van bibliotheekbeheerders en medewerkers.
 
-Items Zoeken
+### Items Zoeken
 
 - Tik de zoekbalk aan en toets je gewenste titel of auteurnaam in.
 
-Items beheren
+### Items beheren
 
 - Klik op het tabblad 'Items' om de lijst met items te bekijken.
 - Klik op 'Nieuw item' om een nieuw item aan de lijst toe te voegen.
@@ -105,7 +105,7 @@ Items beheren
 
 **Tik als je klaar bent op de "Refresh" knop op het beginscherm om je wijzigingen te zien.**
 
-Auteurs beheren
+### Auteurs beheren
 
 - Klik op het tabblad 'Auteurs' om de lijst met auteurs te bekijken.
 - Klik op 'Nieuwe auteur' om een nieuwe auteur aan de lijst toe te voegen.
@@ -116,7 +116,7 @@ Auteurs beheren
 
 **Tik als je klaar bent op de "Refresh" knop op het beginscherm om je wijzigingen te zien.**
 
-Gebruikeraccounts beheren (vervolg)
+### Gebruikeraccounts beheren 
 
 - Klik op 'Nieuwe gebruiker' om een nieuw gebruikersaccount aan te maken.
   Vul de gegevens van de nieuwe gebruiker in en klik op 'Opslaan'.
