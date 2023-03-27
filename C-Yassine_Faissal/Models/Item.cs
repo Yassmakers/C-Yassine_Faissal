@@ -6,6 +6,9 @@
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+
+        public string Bookshelf { get; set; }
+
         // We gebruiken de ItemType enumeratie om de verschillende itemtypen te onderscheiden
         public ItemType ItemType { get; set; }
         public int AuthorId { get; set; }

@@ -15,14 +15,14 @@ using System.Windows.Shapes;
 
 namespace C_Yassine_Faissal.Views.Popups
 {
-    /// <summary>
-    /// Interaction logic for CreateItemPopup.xaml
-    /// </summary>
+    
     public partial class CreateItemPopup : Window
     {
         public CreateItemPopup(LibraryContext libraryContext)
         {
             InitializeComponent();
+
+            // Initialiseer de DataContext met de CreateItemPopupViewModel en de LibraryContext
             DataContext = new CreateItemPopupViewModel(libraryContext);
         }
     }

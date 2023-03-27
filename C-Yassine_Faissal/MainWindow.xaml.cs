@@ -27,6 +27,7 @@ namespace C_Yassine_Faissal
 
         public MainWindow(bool isAdmin = false, bool isEmployee = false)
         {
+            // Initialiseer de benodigde variabelen en voeg een Frame toe aan de MainContent stackpanel.
             InitializeComponent();
 
             IsAdmin = isAdmin;
@@ -39,11 +40,12 @@ namespace C_Yassine_Faissal
             _contentFrame.NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden;
             MainContent.Children.Add(_contentFrame);
 
-            // Pass the ItemsViewModel from MainViewModel to the ItemsView
+            // Voeg de ItemsViewModel toe aan de DataContext van de MainWindow.
             var mainViewModel = new MainViewModel(_libraryContext);
             DataContext = mainViewModel;
             _itemsView = new ItemsView(mainViewModel.ItemsViewModel);
 
+            // Zet de zichtbaarheid van de knoppen afhankelijk van of de gebruiker een admin of employee is.
             CreateUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
             UpdateUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
             DeleteUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
@@ -54,17 +56,19 @@ namespace C_Yassine_Faissal
             UpdateAuthorButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
             DeleteAuthorButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
 
-            // Load ItemsView by default
+            // Laad ItemsView als standaardcontent.
             _contentFrame.Content = _itemsView;
         }
-    
 
-        // 
 
+
+        // Methode om LoginWindow te tonen wanneer MainWindow wordt gesloten.
         private void MainWindow_Closed(object sender, EventArgs e)
         {
             this.Owner?.Show(); // Show the LoginWindow when the MainWindow is closed
         }
+        
+        // Methode om een nieuwe gebruiker aan te maken.
         private async Task CreateUserAsync(User newUser)
         {
             if (newUser != null)
@@ -74,6 +78,7 @@ namespace C_Yassine_Faissal
             }
         }
 
+        // Methode om de connection string op te halen uit appsettings.json.
         private string GetConnectionString()
         {
             var builder = new ConfigurationBuilder()
@@ -88,21 +93,32 @@ namespace C_Yassine_Faissal
 
         private void CreateItemButton_Click(object sender, RoutedEventArgs e)
         {
+            // Maak een nieuwe CreateItemPopup en geef de LibraryContext mee als parameter.
             var createItemPopup = new CreateItemPopup(_libraryContext);
+
+            // Stel de Owner van de popup in als dit MainWindow.
             createItemPopup.Owner = this;
+
+            // Toon de popup.
             createItemPopup.ShowDialog();
         }
 
         private void UpdateItemButton_Click_1(object sender, RoutedEventArgs e)
         {
+            // Maak een nieuwe UpdateItemPopup en geef de LibraryContext mee als parameter.
             var updateItemPopup = new UpdateItemPopup(_libraryContext);
+
+            // Stel de Owner van de popup in als dit MainWindow.
             updateItemPopup.Owner = this;
+
+            // Toon de popup.
             updateItemPopup.ShowDialog();
         }
 
 
         private void DeleteItemButton_Click(object sender, RoutedEventArgs e)
         {
+            // Maak een nieuwe DeleteItemPopup met een UpdateItemPopupViewModel als DataContext, en geef de LibraryContext mee als parameter.
             var deleteItemPopup = new DeleteItemPopup(new UpdateItemPopupViewModel(_libraryContext));
             deleteItemPopup.Owner = this;
             deleteItemPopup.ShowDialog();
@@ -112,6 +128,7 @@ namespace C_Yassine_Faissal
 
         private void CreateAuthorButton_Click(object sender, RoutedEventArgs e)
         {
+            // Maak een nieuwe CreateAuthorPopup en geef de LibraryContext mee als parameter.
             var createAuthorPopup = new CreateAuthorPopup(_libraryContext);
             createAuthorPopup.Owner = this;
             createAuthorPopup.ShowDialog();
@@ -119,6 +136,7 @@ namespace C_Yassine_Faissal
 
         private void UpdateAuthorButton_Click(object sender, RoutedEventArgs e)
         {
+            // Maak een nieuwe UpdateAuthorPopup met een UpdateAuthorPopupViewModel als DataContext, en geef de LibraryContext mee als parameter.
             var updateAuthorPopup = new UpdateAuthorPopup(new UpdateAuthorPopupViewModel(_libraryContext));
             updateAuthorPopup.Owner = this;
             updateAuthorPopup.ShowDialog();
@@ -126,6 +144,7 @@ namespace C_Yassine_Faissal
 
         private void DeleteAuthorButton_Click(object sender, RoutedEventArgs e)
         {
+            // Maak een nieuwe DeleteAuthorPopup met een DeleteAuthorPopupViewModel als DataContext, en geef de LibraryContext mee als parameter.
             var deleteAuthorPopup = new DeleteAuthorPopup(new DeleteAuthorPopupViewModel(_libraryContext));
             deleteAuthorPopup.Owner = this;
             deleteAuthorPopup.ShowDialog();
@@ -136,6 +155,7 @@ namespace C_Yassine_Faissal
 
         private void CreateUserButton_Click(object sender, RoutedEventArgs e)
         {
+            // Maak een nieuwe CreateUserPopup en geef de LibraryContext mee als parameter.
             var createUserPopup = new CreateUserPopup(_libraryContext);
             createUserPopup.ShowDialog();
         }
@@ -143,21 +163,36 @@ namespace C_Yassine_Faissal
 
         private void UpdateUserButton_Click(object sender, RoutedEventArgs e)
         {
+            // Maak een nieuwe UpdateUserPopup.
             var updateUserPopup = new UpdateUserPopup();
+
+            // Stel de DataContext van de popup in als een nieuwe UpdateUserPopupViewModel met de LibraryContext als parameter.
             updateUserPopup.DataContext = new UpdateUserPopupViewModel(_libraryContext);
+
+            // Stel de Owner van de popup in als dit MainWindow.
             updateUserPopup.Owner = this;
+
+            // Toon de popup.
             updateUserPopup.ShowDialog();
         }
 
         private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
         {
+            // Maak een nieuwe DeleteUserPopup.
             var deleteUserPopup = new DeleteUserPopup();
+            
+            // Stel de DataContext van de popup in als een nieuwe DeleteUserPopupViewModel met de LibraryContext als parameter.
             deleteUserPopup.DataContext = new DeleteUserPopupViewModel(_libraryContext);
+
+            // Stel de Owner van de popup in als dit MainWindow.
             deleteUserPopup.Owner = this;
+            
+            // Toon de popup.
             deleteUserPopup.ShowDialog();
         }
 
-
+     
+        // Laadt het opgegeven ContentControl in het hoofdframe van het MainWindow.
         private void LoadContent(ContentControl content)
         {
             _contentFrame.Content = content;

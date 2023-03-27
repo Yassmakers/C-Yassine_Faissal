@@ -20,10 +20,13 @@ public class CreateItemPopupViewModel : ViewModelBase
 
     private string _title;
     private string _description;
+    private string _bookshelf;
     private ItemType _itemType;
     private int _authorId;
     private LibraryContext _libraryContext;
     public ICommand CreateItemCommand { get; }
+    
+    // Eigenschappen voor databinding
     public string Title
     {
         get => _title;
@@ -39,6 +42,15 @@ public class CreateItemPopupViewModel : ViewModelBase
         set
         {
             SetProperty(ref _description, value);
+        }
+    }
+
+    public string Bookshelf
+    {
+        get => _bookshelf;
+        set
+        {
+            SetProperty(ref _bookshelf, value); 
         }
     }
 
@@ -120,6 +132,7 @@ public class CreateItemPopupViewModel : ViewModelBase
         {
             Title = Title,
             Description = Description,
+            Bookshelf = Bookshelf,
             ItemType = ItemType,
             AuthorId = AuthorId,
             ItemStatus = ItemStatus.Available
@@ -146,6 +159,7 @@ public class CreateItemPopupViewModel : ViewModelBase
         // Maakt de input velden leeg
         Title = string.Empty;
         Description = string.Empty;
+        Bookshelf = string.Empty; 
         AuthorId = 0;
         ItemType = ItemType.None;
         SelectedAuthor = null;

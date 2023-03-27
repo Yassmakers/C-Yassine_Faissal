@@ -48,8 +48,8 @@
                                 <TextBlock Text="{Binding ItemType}" Margin="10,0,0,0" />
                                 <TextBlock Text="Status:" FontWeight="Bold" />
                                 <TextBlock Text="{Binding ItemStatus}" Margin="10,0,0,0" />
-                                <TextBlock Text="Price:" FontWeight="Bold" />
-                                <TextBlock Text="{Binding Price, StringFormat='Price: {0:C}'}" Margin="10,0,0,0" />
+                                <TextBlock Text="Locatie:" FontWeight="Bold" />
+                                <TextBlock Text="{Binding Bookshelf}" Margin="10,0,0,0" />
                             </StackPanel>
                         </Expander>
                     </DataTemplate>

@@ -8,10 +8,5 @@ namespace C_Yassine_Faissal.Views.Popups
         {
             InitializeComponent();
         }
-
-        private void UpdateUserButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Your implementation here
-        }
     }
 }

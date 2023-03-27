@@ -15,38 +15,45 @@ namespace C_Yassine_Faissal
     {
         private ServiceProvider serviceProvider;
         private IServiceCollection services = new ServiceCollection();
+        
+        // Wordt aangeroepen bij het starten van de applicatie
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
+            // Voeg de database context toe aan de services
             services.AddDbContext<LibraryContext>(options =>
             {
-                string dbPath = @"C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\bin\Debug\net6.0-windows\library.db";
+                string dbPath = Path.Combine(Environment.CurrentDirectory, "library.db");
                 options.UseSqlite($"Data Source={dbPath}");
-            });
+            }, ServiceLifetime.Transient, ServiceLifetime.Singleton);
 
-            // Register other services, e.g., ViewModels, repositories, etc.
+
+            // Registreer andere services, bijvoorbeeld ViewModels en repositories
             // services.AddTransient<YourViewModel>();
 
-            services.AddTransient<MainWindow>(); // Add this line to register MainWindow
+            // Registreer de MainWindow service
+            services.AddTransient<MainWindow>();
 
+            // Bouw de ServiceProvider op
             serviceProvider = services.BuildServiceProvider();
 
+            // Maak de database aan als deze nog niet bestaat
             using (var scope = serviceProvider.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<LibraryContext>();
                 context.EnsureDatabaseCreated();
             }
 
-            // Show the login window first
+            // Toon eerst het login scherm
             var loginWindow = new LoginWindow();
             loginWindow.ShowDialog();
 
-            // Create and show the main window
+            // Maak en toon het hoofdscherm
             var mainWindow = serviceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
 
-            // Close the login window
+            // Sluit het login scherm
             loginWindow.Close();
         }
     }
