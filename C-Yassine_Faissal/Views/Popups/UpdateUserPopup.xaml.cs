@@ -2,7 +2,7 @@
 using System.Windows;
 namespace C_Yassine_Faissal.Views.Popups
 {
-    public partial class UpdateUserPopup : UserControl
+    public partial class UpdateUserPopup : Window
     {
         public UpdateUserPopup()
         {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace C_Yassine_Faissal.ViewModels.Popups
 {
-        public class UpdateItemPopupViewModel
+        public class UpdateItemPopupViewModel 
         {
             private readonly LibraryContext _libraryContext;
 
@@ -24,7 +24,12 @@ namespace C_Yassine_Faissal.ViewModels.Popups
                 ItemStatuses = new ObservableCollection<ItemStatus>(Enum.GetValues(typeof(ItemStatus)).Cast<ItemStatus>());
             }
 
-            public void UpdateItem(Item selectedItem)
+
+       
+
+
+
+        public void UpdateItem(Item selectedItem)
             {
                 selectedItem.ItemStatus = SelectedItemStatus;
             }

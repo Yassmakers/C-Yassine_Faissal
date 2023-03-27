@@ -1,39 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using C_Yassine_Faissal.Commands;
+using C_Yassine_Faissal.Data;
+using C_Yassine_Faissal.Models;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
-using C_Yassine_Faissal.Commands;
-
 
 namespace C_Yassine_Faissal.ViewModels.Popups
 {
     public class DeleteUserPopupViewModel : ViewModelBase
     {
-        private string _name;
+        private readonly LibraryContext _libraryContext;
 
-        public string Name
+        private string _searchEmail;
+        public string SearchEmail
         {
-            get => _name;
-            set => SetProperty(ref _name, value);
+            get { return _searchEmail; }
+            set { _searchEmail = value; OnPropertyChanged(); }
         }
 
-        public ICommand CreateUserCommand { get; }
+        public ICommand SearchAndDeleteCommand { get; }
 
-        public DeleteUserPopupViewModel()
+        public DeleteUserPopupViewModel(LibraryContext libraryContext)
         {
-            CreateUserCommand = new RelayCommand(DeleteUser, CanDeleteUser);
+            _libraryContext = libraryContext;
+            SearchAndDeleteCommand = new RelayCommand(obj => SearchAndDeleteUser());
         }
 
-        private void DeleteUser(object obj)
+        private void SearchAndDeleteUser()
         {
-            // Add logic to create a new user
-        }
+            var userToDelete = _libraryContext.Users.FirstOrDefault(u => u.Email == SearchEmail);
 
-        private bool CanDeleteUser(object obj)
-        {
-            return !string.IsNullOrEmpty(Name);
+            if (userToDelete != null)
+            {
+                _libraryContext.Users.Remove(userToDelete);
+                _libraryContext.SaveChanges();
+                MessageBox.Show("User deleted successfully.");
+            }
+            else
+            {
+                MessageBox.Show("User not found");
+            }
         }
     }
 }

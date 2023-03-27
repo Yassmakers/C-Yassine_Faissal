@@ -1,21 +1,23 @@
-﻿using C_Yassine_Faissal.ViewModels.Popups;
+﻿using C_Yassine_Faissal.Data;
 using System.Windows;
-using System.Windows.Controls;
 
-
-
-namespace C_Yassine_Faissal
+namespace C_Yassine_Faissal.Views.Popups
 {
-    public partial class CreateUserWindow : Window
+    public partial class CreateUserPopup : Window
     {
-        public CreateUserWindow()
+        public CreateUserPopup(LibraryContext libraryContext)
         {
             InitializeComponent();
+            DataContext = new CreateUserPopupViewModel(libraryContext);
+            PasswordBox.PasswordChanged += (s, e) => ((CreateUserPopupViewModel)DataContext).Password = PasswordBox.Password;
         }
 
-        private void CreateUserButton_Click(object sender, RoutedEventArgs e)
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            // Your code to create a user here
+            if (DataContext != null)
+            {
+                ((CreateUserPopupViewModel)DataContext).Password = PasswordBox.Password;
+            }
         }
     }
 }

@@ -91,11 +91,28 @@ public class CreateItemPopupViewModel : ViewModelBase
 
 
 
-   
+    private Author _selectedAuthor;
+    public Author SelectedAuthor
+    {
+        get => _selectedAuthor;
+        set
+        {
+            SetProperty(ref _selectedAuthor, value);
+            if (value != null)
+                AuthorId = value.Id;
+        }
+    }
+
 
 
     private void CreateItem(object obj)
     {
+        if (_libraryContext.Items.Any(i => i.Title.Equals(Title, StringComparison.OrdinalIgnoreCase)))
+        {
+            MessageBox.Show($"An item with the title '{Title}' already exists. Please choose a different title.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+
         var newItem = new Item
         {
             Title = Title,
@@ -126,6 +143,7 @@ public class CreateItemPopupViewModel : ViewModelBase
         Description = string.Empty;
         AuthorId = 0;
         ItemType = ItemType.None;
+        SelectedAuthor = null;
     }
 
 

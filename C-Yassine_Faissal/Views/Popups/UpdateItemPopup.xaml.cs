@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using C_Yassine_Faissal.Data;
 using C_Yassine_Faissal.Models;
 using C_Yassine_Faissal.ViewModels.Popups;
+using System;
+using System.Windows;
 
 namespace C_Yassine_Faissal.Views.Popups
 {
@@ -21,47 +11,55 @@ namespace C_Yassine_Faissal.Views.Popups
         private readonly UpdateItemPopupViewModel _viewModel;
         private Item _selectedItem;
 
-        public UpdateItemPopup(UpdateItemPopupViewModel viewModel)
+        public UpdateItemPopup(LibraryContext libraryContext)
         {
             InitializeComponent();
-            _viewModel = viewModel;
+            _viewModel = new UpdateItemPopupViewModel(libraryContext);
+            DataContext = _viewModel;
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            string title = SearchTitleTextBox.Text;
-            if (!string.IsNullOrEmpty(title))
+            _selectedItem = _viewModel.FindItemByTitle(SearchTitleTextBox.Text);
+
+            if (_selectedItem != null)
             {
-                _selectedItem = _viewModel.FindItemByTitle(title);
-                if (_selectedItem != null)
-                {
-                    TitleTextBox.Text = _selectedItem.Title;
-                    AuthorTextBox.Text = _selectedItem.Author.Name;
-                }
-                else
-                {
-                    MessageBox.Show("Item not found.");
-                }
+                TitleTextBox.Text = _selectedItem.Title;
+                AuthorComboBox.SelectedItem = _selectedItem.Author;
+                DescriptionTextBox.Text = _selectedItem.Description;
+                ItemTypeComboBox.SelectedItem = _selectedItem.ItemType;
+                ItemStatusComboBox.SelectedItem = _selectedItem.ItemStatus;
+            }
+            else
+            {
+                MessageBox.Show("Item not found.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_selectedItem != null)
+            if (_selectedItem == null)
             {
-                _selectedItem.Title = TitleTextBox.Text;
-                _selectedItem.Author.Name = AuthorTextBox.Text;
+                MessageBox.Show("Please search for an item before updating.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
+            _selectedItem.Title = TitleTextBox.Text;
+            _selectedItem.Author = (Author)AuthorComboBox.SelectedItem;
+            _selectedItem.Description = DescriptionTextBox.Text;
+            _selectedItem.ItemType = (ItemType)ItemTypeComboBox.SelectedItem;
+            _selectedItem.ItemStatus = (ItemStatus)ItemStatusComboBox.SelectedItem;
+
+            try
+            {
                 await _viewModel.UpdateItemAsync(_selectedItem);
-                MessageBox.Show("Item updated successfully.");
+                MessageBox.Show("Item updated successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please search for an item to update.");
+                MessageBox.Show($"Error updating item: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
 }
-
-

@@ -95,7 +95,7 @@ namespace C_Yassine_Faissal
 
         private void UpdateItemButton_Click_1(object sender, RoutedEventArgs e)
         {
-            var updateItemPopup = new UpdateItemPopup(new UpdateItemPopupViewModel(_libraryContext));
+            var updateItemPopup = new UpdateItemPopup(_libraryContext);
             updateItemPopup.Owner = this;
             updateItemPopup.ShowDialog();
         }
@@ -136,20 +136,27 @@ namespace C_Yassine_Faissal
 
         private void CreateUserButton_Click(object sender, RoutedEventArgs e)
         {
-            var createUserWindow = new CreateUserWindow();
-            createUserWindow.ShowDialog();
+            var createUserPopup = new CreateUserPopup(_libraryContext);
+            createUserPopup.ShowDialog();
         }
 
 
         private void UpdateUserButton_Click(object sender, RoutedEventArgs e)
         {
-            LoadContent(new C_Yassine_Faissal.Views.Popups.UpdateUserPopup());
+            var updateUserPopup = new UpdateUserPopup();
+            updateUserPopup.DataContext = new UpdateUserPopupViewModel(_libraryContext);
+            updateUserPopup.Owner = this;
+            updateUserPopup.ShowDialog();
         }
 
         private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
         {
-            LoadContent(new C_Yassine_Faissal.Views.Popups.DeleteUserPopup());
+            var deleteUserPopup = new DeleteUserPopup();
+            deleteUserPopup.DataContext = new DeleteUserPopupViewModel(_libraryContext);
+            deleteUserPopup.Owner = this;
+            deleteUserPopup.ShowDialog();
         }
+
 
         private void LoadContent(ContentControl content)
         {

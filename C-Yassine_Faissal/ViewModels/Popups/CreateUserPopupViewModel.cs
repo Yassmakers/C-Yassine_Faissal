@@ -1,35 +1,70 @@
-﻿using C_Yassine_Faissal.Models;
+﻿using C_Yassine_Faissal.Commands;
+using C_Yassine_Faissal.Data;
+using C_Yassine_Faissal.Models;
 using C_Yassine_Faissal.ViewModels;
+using System;
+using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
-using C_Yassine_Faissal.Commands; 
 
-namespace C_Yassine_Faissal.ViewModels.Popups
+public class CreateUserPopupViewModel : ViewModelBase
 {
-    public class CreateUserPopupViewModel : ViewModelBase
+    private LibraryContext _libraryContext;
+
+    public ICommand CreateUserCommand { get; }
+
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Email { get; set; }
+    public UserRole SelectedRole { get; set; }
+
+    public ObservableCollection<UserRole> Roles { get; set; }
+
+    public CreateUserPopupViewModel(LibraryContext libraryContext)
     {
-        private string _name;
+        _libraryContext = libraryContext;
 
-        public string Name
+        CreateUserCommand = new RelayCommand(CreateUser);
+
+        Roles = new ObservableCollection<UserRole>
         {
-            get => _name;
-            set => SetProperty(ref _name, value);
+            UserRole.Admin,
+            UserRole.Employee,
+            UserRole.Guest
+        };
+    }
+    public string Password { get; set; }
+    public string UserName { get; set; }
+    private void CreateUser(object obj)
+    {
+        var newUser = new User
+        {
+            FirstName = FirstName,
+            LastName = LastName,
+            Email = Email,
+            UserName = UserName, 
+            Role = SelectedRole,
+            Password = Password
+        };
+
+
+        _libraryContext.Users.Add(newUser);
+
+        try
+        {
+            _libraryContext.SaveChanges();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"An error occurred while saving the user: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
         }
 
-        public ICommand CreateUserCommand { get; }
+        MessageBox.Show($"User '{FirstName} {LastName}' has been created successfully.", "User Created", MessageBoxButton.OK, MessageBoxImage.Information);
 
-        public CreateUserPopupViewModel()
-        {
-            CreateUserCommand = new RelayCommand(CreateUser, CanCreateUser);
-        }
-
-        private void CreateUser(object obj)
-        {
-            // Add logic to create a new user
-        }
-
-        private bool CanCreateUser(object obj)
-        {
-            return !string.IsNullOrEmpty(Name);
-        }
+        FirstName = string.Empty;
+        LastName = string.Empty;
+        Email = string.Empty;
+        SelectedRole = UserRole.Guest;
     }
 }
