@@ -134,11 +134,11 @@ namespace C_Yassine_Faissal.Data
             Users.Add(new User
             {
                 Id = 3,
-                UserName = "GuestAccount",
-                FirstName = "Guest",
-                LastName = "User",
-                Email = "guest@example.com",
-                Password = "guest123", // You should use a hashed password in a real application
+                UserName = "Jopie",
+                FirstName = "Jopie",
+                LastName = "Akkerlaan",
+                Email = "Jopie@Akkerlaan.com",
+                Password = "Jopie123", // You should use a hashed password in a real application
                 Role = UserRole.Guest
             });
 

@@ -13,7 +13,7 @@
             </Grid.ColumnDefinitions>
             
             <StackPanel Grid.Column="0" Background="Gray" Width="200">
-                <TextBlock Text="Library Management" FontSize="18" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="10" Height="28" Width="185" />
+                <TextBlock Text="Bibliotheekbeheer" FontSize="18" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="10" Height="28" Width="185" />
                 <Separator Margin="10" />
                 <Expander Header="Users" Background="Transparent" Foreground="White" FontWeight="Bold">
                     
