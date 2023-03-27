@@ -69,11 +69,5 @@
     <Page Update="Views\Popups\UpdateUserPopup.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\Search.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\test.xaml">
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
 </Project>

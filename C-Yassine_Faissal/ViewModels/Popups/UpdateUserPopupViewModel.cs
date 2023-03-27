@@ -13,8 +13,10 @@ using System.ComponentModel;
 
 namespace C_Yassine_Faissal.ViewModels.Popups
 {
+    // Dit ViewModel behandelt de logica achter het bijwerken van een User object.
     public class UpdateUserPopupViewModel : ViewModelBase
     {
+        // De data context van de Library.
         private readonly LibraryContext _libraryContext;
         private User _selectedUser;
 
@@ -60,16 +62,18 @@ namespace C_Yassine_Faissal.ViewModels.Popups
              UserRole.Guest
         };
 
+        // ICommand eigenschappen voor de verschillende acties.
         public ICommand SearchCommand { get; }
         public ICommand SaveCommand { get; }
-
+        // Constructor: Initialiseert de data context en ICommand objecten.
         public UpdateUserPopupViewModel(LibraryContext libraryContext)
         {
             _libraryContext = libraryContext;
             SearchCommand = new RelayCommand(obj => SearchUser());
             SaveCommand = new RelayCommand(obj => SaveUser(), obj => CanSaveUser());
         }
-
+        
+        // Zoek een User object op basis van e-mailadres.
         private void SearchUser()
         {
             _selectedUser = _libraryContext.Users.FirstOrDefault(u => u.Email == SearchEmail);
@@ -85,12 +89,14 @@ namespace C_Yassine_Faissal.ViewModels.Popups
                 MessageBox.Show("User not found");
             }
         }
-
+        
+        // Controleer of een User object kan worden opgeslagen.
         private bool CanSaveUser()
         {
             return _selectedUser != null && !string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(LastName) && !string.IsNullOrEmpty(Email);
         }
 
+        // Sla het geselecteerde User object op.
         private void SaveUser()
         {
             if (_selectedUser != null)

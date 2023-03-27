@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace C_Yassine_Faissal.Models
 {
+    // Deze enumeratie representeert de status van een item en wordt gebruikt in de Item.cs-klasse.
     public enum ItemStatus
     {
         Available,
@@ -14,3 +15,4 @@ namespace C_Yassine_Faissal.Models
         Maintenance
     }
 }
+

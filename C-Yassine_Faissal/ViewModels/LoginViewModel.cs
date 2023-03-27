@@ -21,9 +21,11 @@ namespace C_Yassine_Faissal.ViewModels
 
     public class LoginViewModel : ViewModelBase
     {
+        // Velden voor het opslaan van e-mail en wachtwoord.
         private string _email;
         private string _password;
 
+        // Eigenschappen voor het ophalen en instellen van e-mail en wachtwoord.
         public string Email
         {
             get => _email;
@@ -36,9 +38,14 @@ namespace C_Yassine_Faissal.ViewModels
             set => SetProperty(ref _password, value);
         }
 
+        // ICommand eigenschappen voor het inloggen en inloggen als gast.
         public ICommand LoginCommand { get; }
         public ICommand GuestLoginCommand { get; }
+
+        // Instantie van LibraryContext om met de database te communiceren.
         private LibraryContext _context;
+
+        // Constructor voor het initialiseren van commando's en de datacontext.
         public LoginViewModel()
         {
             var optionsBuilder = new DbContextOptionsBuilder<LibraryContext>();
@@ -46,21 +53,24 @@ namespace C_Yassine_Faissal.ViewModels
             optionsBuilder.UseSqlite($"Data Source={dbPath}");
             _context = new LibraryContext(optionsBuilder.Options);
 
+            // Initialiseer de RelayCommand voor het inloggen en inloggen als gast.
             LoginCommand = new RelayCommand(obj => Login(), obj => CanLogin(obj));
             GuestLoginCommand = new RelayCommand(obj => GuestLogin());
         }
 
+        // Methode om in te loggen als gast.
         private void GuestLogin()
         {
-            // Navigate to the main window as a guest
+            // Navigeer naar de main window als gast
             var mainView = new MainWindow(false, false);
             mainView.Show();
             CloseAction?.Invoke();
         }
 
-
+        // Actie om het venster te sluiten.
         public Action CloseAction { get; set; }
 
+        // Methode om in te loggen met e-mail en wachtwoord.
         private void Login()
         {
             var user = _context.Users.FirstOrDefault(u => u.Email == Email && u.Password == Password);
@@ -80,12 +90,12 @@ namespace C_Yassine_Faissal.ViewModels
         }
 
 
-
+        // Methode om te controleren of inloggen mogelijk is.
         private bool CanLogin(object obj)
         {
             return !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password);
         }
-
+        // Methode om eigenschappen in te stellen en PropertyChanged event te activeren.
         protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(storage, value))

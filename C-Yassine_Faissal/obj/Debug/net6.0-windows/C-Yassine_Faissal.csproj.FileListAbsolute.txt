@@ -69,8 +69,6 @@ C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Popups\DeleteUserPopup.g.cs
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Popups\UpdateItemPopup.g.cs
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Popups\UpdateUserPopup.g.cs
-C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Search.g.cs
-C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\test.g.cs
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\C-Yassine_Faissal_MarkupCompile.cache
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\C-Yassine_Faissal_MarkupCompile.lref
@@ -80,8 +78,6 @@ C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Popups\DeleteItemPopup.baml
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Popups\DeleteUserPopup.baml
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Popups\UpdateUserPopup.baml
-C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\Search.baml
-C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\Views\test.baml
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\C-Yassine_Faissal.g.resources
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\C-Yassine_Faissal.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\obj\Debug\net6.0-windows\C-Yassine_Faissal.AssemblyInfoInputs.cache

@@ -163,17 +163,5 @@ namespace C_Yassine_Faissal
             _contentFrame.Content = content;
         }
 
-
-       
-
-
-
-
-
-
-
-
-
-
     }
 }

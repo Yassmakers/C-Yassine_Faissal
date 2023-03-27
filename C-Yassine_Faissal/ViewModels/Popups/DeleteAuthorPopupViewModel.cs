@@ -27,16 +27,19 @@ public class DeleteAuthorPopupViewModel : ViewModelBase
     public ICommand SearchCommand { get; }
     public ICommand DeleteCommand { get; }
 
-    // Add a constructor that accepts a LibraryContext argument
+    // Constructor: Initialiseert de data context en stelt de SearchCommand en DeleteCommand in
     public DeleteAuthorPopupViewModel(LibraryContext libraryContext)
     {
         _libraryContext = libraryContext;
+        // Initialiseren van de SearchCommand met een actie om de SearchAuthor-functie aan te roepen en een voorwaarde om te controleren of er gezocht kan worden
         SearchCommand = new RelayCommand(obj => SearchAuthor(), obj => CanSearchAuthor());
+        // Initialiseren van de DeleteCommand met een actie om de DeleteAuthor-functie aan te roepen en een voorwaarde om te controleren of er een auteur verwijderd kan worden
         DeleteCommand = new RelayCommand(obj => DeleteAuthor(), obj => CanDeleteAuthor());
     }
 
     private void SearchAuthor()
     {
+        // Zoek de eerste auteur in de database met de opgegeven naam en wijs deze toe aan _selectedAuthor
         _selectedAuthor = _libraryContext.Authors.FirstOrDefault(a => a.Name == SearchName);
         if (_selectedAuthor != null)
         {
@@ -45,6 +48,7 @@ public class DeleteAuthorPopupViewModel : ViewModelBase
         }
         else
         {
+            // Als de auteur gevonden is, toon dan een bericht
             MessageBox.Show("Author not found");
             SelectedAuthorDetails = string.Empty;
         }
@@ -52,6 +56,7 @@ public class DeleteAuthorPopupViewModel : ViewModelBase
 
     private bool CanSearchAuthor()
     {
+        // Controleer of er tekst is ingevoerd in het zoekveld
         return !string.IsNullOrEmpty(SearchName);
     }
 
@@ -66,9 +71,12 @@ public class DeleteAuthorPopupViewModel : ViewModelBase
     private void DeleteAuthor()
     {
         if (_selectedAuthor != null)
-        {
+        {        
+            // Verwijder de geselecteerde auteur uit de database
             _libraryContext.Authors.Remove(_selectedAuthor);
             _libraryContext.SaveChanges();
+
+            // Toon een bericht dat de auteur succesvol is verwijderd
             MessageBox.Show("Author deleted successfully");
             SelectedAuthor = null;
             SearchName = null;
@@ -82,6 +90,7 @@ public class DeleteAuthorPopupViewModel : ViewModelBase
 
     private bool CanDeleteAuthor()
     {
+        // Controleer of er een auteur is geselecteerd
         return _selectedAuthor != null;
     }
 }

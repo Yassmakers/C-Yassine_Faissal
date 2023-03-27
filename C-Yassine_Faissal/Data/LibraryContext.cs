@@ -9,18 +9,20 @@ namespace C_Yassine_Faissal.Data
 {
     public class LibraryContext : DbContext
     {
+        // Deze klasse is de hoofd-DbContext voor de applicatie en bevat DbSet properties
+        // voor de verschillende entiteiten: Items, Users en Authors.
         public LibraryContext(DbContextOptions<LibraryContext> options)
             : base(options)
         {
         }
-
+        // DbSet properties voor Items, Users en Authors
         public DbSet<Item> Items { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Author> Authors { get; set; }
 
-        // Add other DbSet properties as needed
+        // andere db set later bijvoegen
 
-
+        // Zorgt ervoor dat de database is aangemaakt en voert migraties uit
         public void EnsureDatabaseCreated()
         {
             Database.Migrate();
@@ -32,7 +34,7 @@ namespace C_Yassine_Faissal.Data
         }
 
 
-
+        // Vult de database met seed gegevens
         private void SeedData()
         {
             // Seed authors
@@ -65,7 +67,7 @@ namespace C_Yassine_Faissal.Data
             SaveChanges();
         }
 
-
+        // Update een bestaand Item in de database
         public void UpdateItem(Item updatedItem)
         {
             var existingItem = Items.FirstOrDefault(i => i.Id == updatedItem.Id);
@@ -81,7 +83,7 @@ namespace C_Yassine_Faissal.Data
                 SaveChanges();
             }
         }
-
+        // Verwijder een Item uit de database op basis van het itemId
         public void DeleteItem(int itemId)
         {
             var itemToDelete = Items.FirstOrDefault(i => i.Id == itemId);
@@ -94,7 +96,7 @@ namespace C_Yassine_Faissal.Data
         }
 
 
-
+        // Configureert de relaties tussen de entiteiten in de database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Item>().ToTable("Item");

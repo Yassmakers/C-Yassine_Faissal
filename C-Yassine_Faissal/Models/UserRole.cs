@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace C_Yassine_Faissal.Models
 {
+    // Deze enumeratie representeert de rol van een gebruiker (Admin, Employee of Guest) en wordt
+    // gebruikt in de User.cs-klasse. 
     public enum UserRole
     {
         Admin,
@@ -13,3 +15,4 @@ namespace C_Yassine_Faissal.Models
         Guest
     }
 }
+

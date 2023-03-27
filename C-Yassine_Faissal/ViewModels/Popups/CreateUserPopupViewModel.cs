@@ -19,13 +19,13 @@ public class CreateUserPopupViewModel : ViewModelBase
     public UserRole SelectedRole { get; set; }
 
     public ObservableCollection<UserRole> Roles { get; set; }
-
+    // Constructor: Initialiseert de data context, stelt de CreateUserCommand in en vult de lijst met gebruikersrollen
     public CreateUserPopupViewModel(LibraryContext libraryContext)
     {
         _libraryContext = libraryContext;
-
+        // Initialiseren van de CreateUserCommand met een actie om de CreateUser-functie aan te roepen
         CreateUserCommand = new RelayCommand(CreateUser);
-
+        // Initialiseren van de lijst met gebruikersrollen
         Roles = new ObservableCollection<UserRole>
         {
             UserRole.Admin,
@@ -35,8 +35,10 @@ public class CreateUserPopupViewModel : ViewModelBase
     }
     public string Password { get; set; }
     public string UserName { get; set; }
+    // Creëert een nieuwe gebruiker met de opgegeven gegevens en voegt deze toe aan de database
     private void CreateUser(object obj)
     {
+        // Creëer een nieuw User-object met de ingevoerde gegevens van de gebruiker
         var newUser = new User
         {
             FirstName = FirstName,
@@ -47,9 +49,9 @@ public class CreateUserPopupViewModel : ViewModelBase
             Password = Password
         };
 
-
+        // Voeg de nieuwe gebruiker toe aan de DbSet van Users in de LibraryContext
         _libraryContext.Users.Add(newUser);
-
+        // Probeer de wijzigingen op te slaan; toon een foutbericht als er een uitzondering optreedt
         try
         {
             _libraryContext.SaveChanges();
@@ -59,7 +61,7 @@ public class CreateUserPopupViewModel : ViewModelBase
             MessageBox.Show($"An error occurred while saving the user: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             return;
         }
-
+        // Als het opslaan succesvol is, toon een informatiebericht en wis de invoervelden
         MessageBox.Show($"User '{FirstName} {LastName}' has been created successfully.", "User Created", MessageBoxButton.OK, MessageBoxImage.Information);
 
         FirstName = string.Empty;

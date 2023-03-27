@@ -13,19 +13,23 @@
         </Grid.RowDefinitions>
 
         <!-- Search bar -->
-        <Grid Grid.Row="0" Margin="10" VerticalAlignment="Center">
+        <StackPanel Grid.Row="0" Margin="10" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock FontWeight="Bold" VerticalAlignment="Center" ><Run Text="Title/Author:"/></TextBlock>
+            <TextBox x:Name="SearchBox" Width="322" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,10,0" />
+            <Button x:Name="SearchButton" Content="Search" Command="{Binding SearchCommand}" />
+            <Button x:Name="RefreshButton" Content="Refresh" Margin="10,0,0,0" Click="RefreshButton_Click" Width="62" />
+        </StackPanel>
+
+        <!-- Filter options -->
+        <Grid Grid.Row="0" Margin="10,50,10,10" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="SearchBox" Grid.Column="0" Width="200" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" />
-            <Button x:Name="SearchButton" Grid.Column="1" Content="Search" Margin="10,0,0,0" Command="{Binding SearchCommand}" />
-            <Button x:Name="FilterButton" Grid.Column="3" Content="Filter" Margin="10,0,0,0" Click="FilterButton_Click" />
-            <ComboBox  x:Name="FilterComboBox" Grid.Column="2" ItemsSource="{Binding FilterOptions}"  SelectedValue="{Binding FilterType, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,0,0"/>
-            <Button x:Name="RefreshButton" Grid.Column="3" Content="Refresh" Margin="10,0,0,0" Click="RefreshButton_Click" />
+            <TextBlock Text="Filter by:" FontWeight="Bold" VerticalAlignment="Center" />
+            <ComboBox x:Name="FilterComboBox" Grid.Column="1" ItemsSource="{Binding FilterOptions}" SelectedValue="{Binding FilterType, UpdateSourceTrigger=PropertyChanged}" Margin="10,0,0,0"/>
         </Grid>
+
 
         <!-- Items list -->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">

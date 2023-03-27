@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace C_Yassine_Faissal.Models
 {
+    // Deze enumeratie representeert het type van een item en wordt gebruikt in de Item.cs-klasse.
     public enum ItemType
     {
         None,
