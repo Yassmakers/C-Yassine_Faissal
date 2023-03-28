@@ -3,6 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
         xmlns:vm="clr-namespace:C_Yassine_Faissal.ViewModels"
         Title="Login" Height="300" Width="300">
+    <Window.Resources>
+        <Style x:Key="LoginWindowButton" TargetType="Button">
+            <Setter Property="Margin" Value="0,10"/>
+            <Setter Property="Background" Value="#2196F3"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -12,12 +30,12 @@
         </Grid.RowDefinitions>
 
         <Label Content="Email:" Grid.Row="0"/>
-        <TextBox x:Name="EmailTextBox" Grid.Row="1" Margin="0,0,0,5"/>
+        <TextBox x:Name="EmailTextBox" Grid.Row="1" Margin="10,0,10,5"/>
 
         <Label Content="Password:" Grid.Row="2"/>
-        <PasswordBox x:Name="PasswordTextBox" Grid.Row="3" Margin="0,0,0,-5"/>
+        <PasswordBox x:Name="PasswordTextBox" Grid.Row="3" Margin="10,0,10,-5"/>
 
-        <Button Content="Login" Grid.Row="3" HorizontalAlignment="Left" Margin="116,62,0,-60" Click="LoginButton_Click" Width="46"/>
-        <Button Content="Login as Guest" Command="{Binding GuestLoginCommand}"  Grid.Row="3" HorizontalAlignment="Left" Margin="30,84,0,-82"  />
+        <Button Content="Login" Grid.Row="3" HorizontalAlignment="Center" Margin="0,62,0,-60" Click="LoginButton_Click" Width="100" Style="{StaticResource LoginWindowButton}"/>
+        <Button Content="Login as Guest" Command="{Binding GuestLoginCommand}"  Grid.Row="3" HorizontalAlignment="Center" Margin="0,93,0,-91" Width="113" Style="{StaticResource LoginWindowButton}"/>
     </Grid>
 </Window>

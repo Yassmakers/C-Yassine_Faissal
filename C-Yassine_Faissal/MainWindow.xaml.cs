@@ -33,6 +33,8 @@ namespace C_Yassine_Faissal
             IsAdmin = isAdmin;
             IsEmployee = isEmployee;
 
+
+
             var optionsBuilder = new DbContextOptionsBuilder<LibraryContext>();
             optionsBuilder.UseSqlite(GetConnectionString());
             _libraryContext = new LibraryContext(optionsBuilder.Options);
@@ -44,6 +46,11 @@ namespace C_Yassine_Faissal
             var mainViewModel = new MainViewModel(_libraryContext);
             DataContext = mainViewModel;
             _itemsView = new ItemsView(mainViewModel.ItemsViewModel);
+
+            // Update the visibility of the SideBarPanel based on user role.
+            UsersExpander.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
+            AuthorsExpander.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
+            ItemsExpander.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
 
             // Zet de zichtbaarheid van de knoppen afhankelijk van of de gebruiker een admin of employee is.
             CreateUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;

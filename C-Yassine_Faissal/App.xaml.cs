@@ -49,13 +49,6 @@ namespace C_Yassine_Faissal
             // Toon eerst het login scherm
             var loginWindow = new LoginWindow();
             loginWindow.ShowDialog();
-
-            // Maak en toon het hoofdscherm
-            var mainWindow = serviceProvider.GetRequiredService<MainWindow>();
-            mainWindow.Show();
-
-            // Sluit het login scherm
-            loginWindow.Close();
         }
     }
 }
