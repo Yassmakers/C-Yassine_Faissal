@@ -51,7 +51,6 @@ namespace C_Yassine_Faissal
             UsersExpander.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
             AuthorsExpander.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
             ItemsExpander.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
-
             // Zet de zichtbaarheid van de knoppen afhankelijk van of de gebruiker een admin of employee is.
             CreateUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
             UpdateUserButton.Visibility = (IsAdmin || IsEmployee) ? Visibility.Visible : Visibility.Collapsed;
@@ -67,7 +66,11 @@ namespace C_Yassine_Faissal
             _contentFrame.Content = _itemsView;
         }
 
-
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Owner?.Show();
+            this.Close();
+        }
 
         // Methode om LoginWindow te tonen wanneer MainWindow wordt gesloten.
         private void MainWindow_Closed(object sender, EventArgs e)
