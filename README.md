@@ -146,4 +146,4 @@ https://gyazo.com/f37f6c7461d007fc809bc09b052466f5
 >
 > - S-number: s1188088
 > - Email: s1188088@student.windesheim.nl
-> - GitLab: [@Yassineprojects](https://github.com/Yassmakers)
+> - Github: [@Yassineprojects](https://github.com/Yassmakers)
