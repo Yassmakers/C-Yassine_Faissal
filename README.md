@@ -15,7 +15,9 @@ Inhoudsopgave
     - <a href="#items-beheren" target="_new">Items beheren</a>
     - <a href="#auteurs-beheren" target="_new">Auteurs beheren</a>
     - <a href="#gebruikeraccounts-beheren" target="_new">Gebruikeraccounts beheren</a>
+- <a href="#screenshots" target="_new">screenshots</a>    
 - <a href="#aanvullende-opmerkingen" target="_new">Aanvullende opmerkingen</a>
+
 
 ## Inloggegevens
 
@@ -90,11 +92,11 @@ Na het uitvoeren van de database migratie, kunt u het project opnieuw compileren
 
 - #### Gebruikers: Beheer de accounts van bibliotheekbeheerders en medewerkers.
 
-Items Zoeken
+### Items Zoeken
 
 - Tik de zoekbalk aan en toets je gewenste titel of auteurnaam in.
 
-Items beheren
+### Items beheren
 
 - Klik op het tabblad 'Items' om de lijst met items te bekijken.
 - Klik op 'Nieuw item' om een nieuw item aan de lijst toe te voegen.
@@ -105,7 +107,7 @@ Items beheren
 
 **Tik als je klaar bent op de "Refresh" knop op het beginscherm om je wijzigingen te zien.**
 
-Auteurs beheren
+### Auteurs beheren
 
 - Klik op het tabblad 'Auteurs' om de lijst met auteurs te bekijken.
 - Klik op 'Nieuwe auteur' om een nieuwe auteur aan de lijst toe te voegen.
@@ -116,7 +118,7 @@ Auteurs beheren
 
 **Tik als je klaar bent op de "Refresh" knop op het beginscherm om je wijzigingen te zien.**
 
-Gebruikeraccounts beheren (vervolg)
+### Gebruikeraccounts beheren 
 
 - Klik op 'Nieuwe gebruiker' om een nieuw gebruikersaccount aan te maken.
   Vul de gegevens van de nieuwe gebruiker in en klik op 'Opslaan'.
@@ -125,6 +127,10 @@ Gebruikeraccounts beheren (vervolg)
 - Klik op 'Verwijderen' om een gebruiker uit de lijst te verwijderen.
 
 **Tik als je klaar bent op de "Refresh" knop op het beginscherm om je wijzigingen te zien.**
+
+# Screenshots
+https://gyazo.com/2f55d3fd66e36700c8c162a6eeaec998
+https://gyazo.com/f37f6c7461d007fc809bc09b052466f5
 
 # Aanvullende opmerkingen
 
