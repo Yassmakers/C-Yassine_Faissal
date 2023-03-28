@@ -5,6 +5,7 @@ using System.Linq;
 using C_Yassine_Faissal.Data;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using System;
 
 
 namespace C_Yassine_Faissal.Data
@@ -43,8 +44,10 @@ namespace C_Yassine_Faissal.Data
         // Vult de database met seed gegevens
         private void SeedData()
         {
-            // Seed authors
-            Authors.Add(new Author { Id = 1, Name = "George Orwell" });
+            try
+            {
+                // Seed authors
+                Authors.Add(new Author { Id = 1, Name = "George Orwell" });
             Authors.Add(new Author { Id = 2, Name = "J.K. Rowling" });
             Authors.Add(new Author { Id = 3, Name = "J.R.R. Tolkien" });
             Authors.Add(new Author { Id = 4, Name = "Christopher Nolan" });
@@ -143,7 +146,13 @@ namespace C_Yassine_Faissal.Data
             });
 
             SaveChanges();
+
         }
+    catch (DbUpdateException ex)
+    {
+        Console.WriteLine($"DbUpdateException: {ex.InnerException.Message}");
+    }
+}
 
 
 

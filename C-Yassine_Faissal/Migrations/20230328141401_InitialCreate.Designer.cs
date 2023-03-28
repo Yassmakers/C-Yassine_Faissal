@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace C_Yassine_Faissal.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20230327232351_InitialCreate")]
+    [Migration("20230328141401_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

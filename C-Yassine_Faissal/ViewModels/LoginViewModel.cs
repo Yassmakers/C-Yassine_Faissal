@@ -12,7 +12,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.EntityFrameworkCore.Sqlite;
-
+using System.IO;
 
 
 
@@ -49,8 +49,9 @@ namespace C_Yassine_Faissal.ViewModels
         public LoginViewModel()
         {
             var optionsBuilder = new DbContextOptionsBuilder<LibraryContext>();
-            string dbPath = @"C:\Users\symon\source\repos\C-Yassine_Faissal\C-Yassine_Faissal\bin\Debug\net6.0-windows\library.db";
+            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Constants.DatabaseFileName);
             optionsBuilder.UseSqlite($"Data Source={dbPath}");
+            Console.WriteLine($"Database file exists: {File.Exists(dbPath)}");
             _context = new LibraryContext(optionsBuilder.Options);
 
             // Initialiseer de RelayCommand voor het inloggen en inloggen als gast.

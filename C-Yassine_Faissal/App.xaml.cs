@@ -24,8 +24,9 @@ namespace C_Yassine_Faissal
             // Voeg de database context toe aan de services
             services.AddDbContext<LibraryContext>(options =>
             {
-                string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "library.db");
+                string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Constants.DatabaseFileName);
                 options.UseSqlite($"Data Source={dbPath}");
+                Console.WriteLine($"Database file exists: {File.Exists(dbPath)}");
             }, ServiceLifetime.Transient, ServiceLifetime.Singleton);
 
 
