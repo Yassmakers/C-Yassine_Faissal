@@ -15,7 +15,7 @@ namespace C_Yassine_Faissal
     {
         private ServiceProvider serviceProvider;
         private IServiceCollection services = new ServiceCollection();
-        
+
         // Wordt aangeroepen bij het starten van de applicatie
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -24,7 +24,7 @@ namespace C_Yassine_Faissal
             // Voeg de database context toe aan de services
             services.AddDbContext<LibraryContext>(options =>
             {
-                string dbPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "library.db"));
+                string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "library.db");
                 options.UseSqlite($"Data Source={dbPath}");
             }, ServiceLifetime.Transient, ServiceLifetime.Singleton);
 

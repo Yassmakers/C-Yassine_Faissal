@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\symon\\source\\repos\\C-Yassine_Faissal\\C-Yassine_Faissal\\C-Yassine_Faissal.csproj": {}
+    "C:\\Users\\symon\\Pictures\\C-Yassine_Faissal\\C-Yassine_Faissal\\C-Yassine_Faissal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\symon\\source\\repos\\C-Yassine_Faissal\\C-Yassine_Faissal\\C-Yassine_Faissal.csproj": {
+    "C:\\Users\\symon\\Pictures\\C-Yassine_Faissal\\C-Yassine_Faissal\\C-Yassine_Faissal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\symon\\source\\repos\\C-Yassine_Faissal\\C-Yassine_Faissal\\C-Yassine_Faissal.csproj",
+        "projectUniqueName": "C:\\Users\\symon\\Pictures\\C-Yassine_Faissal\\C-Yassine_Faissal\\C-Yassine_Faissal.csproj",
         "projectName": "C-Yassine_Faissal",
-        "projectPath": "C:\\Users\\symon\\source\\repos\\C-Yassine_Faissal\\C-Yassine_Faissal\\C-Yassine_Faissal.csproj",
+        "projectPath": "C:\\Users\\symon\\Pictures\\C-Yassine_Faissal\\C-Yassine_Faissal\\C-Yassine_Faissal.csproj",
         "packagesPath": "C:\\Users\\symon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\symon\\source\\repos\\C-Yassine_Faissal\\C-Yassine_Faissal\\obj\\",
+        "outputPath": "C:\\Users\\symon\\Pictures\\C-Yassine_Faissal\\C-Yassine_Faissal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
