@@ -119,7 +119,7 @@ namespace C_Yassine_Faissal.Data
                 FirstName = "Jan",
                 LastName = "Zuur",
                 Email = "janzuur@gmail.nl",
-                Password = "jan123", // You should use a hashed password in a real application
+                Password = "jan123", // Hashed passw gebruiken in de toekomst
                 Role = UserRole.Admin
             });
 
@@ -130,7 +130,7 @@ namespace C_Yassine_Faissal.Data
                 FirstName = "Emma",
                 LastName = "Robbergen",
                 Email = "Robbergen@outlook.com",
-                Password = "emma123", // You should use a hashed password in a real application
+                Password = "emma123", // Hashed passw gebruiken in de toekomst
                 Role = UserRole.Employee
             });
 
@@ -141,7 +141,7 @@ namespace C_Yassine_Faissal.Data
                 FirstName = "Jopie",
                 LastName = "Akkerlaan",
                 Email = "Jopie@Akkerlaan.com",
-                Password = "Jopie123", // You should use a hashed password in a real application
+                Password = "Jopie123", // Hashed passw gebruiken in de toekomst
                 Role = UserRole.Guest
             });
 
