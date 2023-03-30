@@ -159,11 +159,22 @@ public class CreateItemPopupViewModel : ViewModelBase
         // Maakt de input velden leeg
         Title = string.Empty;
         Description = string.Empty;
-        Bookshelf = string.Empty; 
+        Bookshelf = string.Empty;
         AuthorId = 0;
         ItemType = ItemType.None;
         SelectedAuthor = null;
+
+        // Close the window and refresh it with a new instance of the view model
+        var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
+        if (window != null)
+        {
+            window.Close();
+            var viewModel = new CreateItemPopupViewModel(_libraryContext);
+            var newWindow = new CreateItemPopupView { DataContext = viewModel };
+            newWindow.ShowDialog();
+        }
     }
+
 
 
 }

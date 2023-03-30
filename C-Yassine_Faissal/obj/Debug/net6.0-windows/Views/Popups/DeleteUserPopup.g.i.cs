@@ -68,7 +68,7 @@ namespace C_Yassine_Faissal.Views.Popups {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/C-Yassine_Faissal;component/views/popups/deleteuserpopup.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/C-Yassine_Faissal;V1.0.0.0;component/views/popups/deleteuserpopup.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Popups\DeleteUserPopup.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
