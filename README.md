@@ -3,10 +3,10 @@
 #### Het C# Bibliotheekbeheersysteem is een WPF MVVM-applicatie ontworpen voor bibliotheekbeheerders en medewerkers. Het systeem helpt bij het beheren van items (zoals boeken, cd's, dvd's, Blu-rays, games) en auteurs in een bibliotheek. Deze handleiding zal u door de basisfuncties en bedieningselementen van de applicatie leiden.
 
 Inhoudsopgave
+- <a href="#installatie" target="_new">Installatie</a>
 
 - <a href="#inloggegevens" target="_new">Inloggegevens</a>
 - <a href="#systeemvereisten" target="_new">Systeemvereisten</a>
-- <a href="#installatie" target="_new">Installatie</a>
 - <a href="#database-migratie" target="_new">Database migratie</a>
 - <a href="#gebruikershandleiding" target="_new">Gebruikershandleiding</a>
   - <a href="#inloggen" target="_new">Inloggen</a>
@@ -17,6 +17,14 @@ Inhoudsopgave
     - <a href="#gebruikeraccounts-beheren" target="_new">Gebruikeraccounts beheren</a>
 - <a href="#screenshots" target="_new">screenshots</a>    
 - <a href="#aanvullende-opmerkingen" target="_new">Aanvullende opmerkingen</a>
+
+
+# Installatie
+
+- Kloon de Git-repository of download en pak het zip-bestand uit.
+- Open het project in Visual Studio.
+- Controleer of de juiste NuGet-pakketten zijn geïnstalleerd.
+- Compileer en voer het project uit --> (bekijk eerst ##Inloggegevens).
 
 
 ## Inloggegevens
@@ -46,16 +54,10 @@ Systeemvereisten
 - WPF
 - Entity Framework Core 7
 
-# Installatie
 
-- Kloon de Git-repository of download en pak het zip-bestand uit.
-- Open het project in Visual Studio.
-- Controleer of de juiste NuGet-pakketten zijn geïnstalleerd.
-- Compileer en voer het project uit --> (bekijk eerst #Database Migratie en ##Inloggegevens).
+# Database migratie ( Dit alleen doen als de migrations map ontbreekt en het migrations niet inlaad, als je het gewoon clean pulled werkt het wel)
 
-# Database migratie
-
-Voordat u de applicatie uitvoert, moet u de database migreren. Dit zijn de stappen om dat te doen:
+Voordat u de applicatie uitvoert, mocht de applicatie niet werken omdat u nog geen migrations map ziet kunt u de database migreren. Dit zijn de stappen om dat te doen:
 
 - Open het project in Visual Studio.
 - Open de NuGet Package Manager Console via Tools > NuGet Package Manager > Package Manager Console.
