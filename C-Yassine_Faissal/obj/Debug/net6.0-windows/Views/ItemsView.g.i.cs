@@ -9,6 +9,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using C_Yassine_Faissal;
+using C_Yassine_Faissal.ViewModels;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -92,7 +94,7 @@ namespace C_Yassine_Faissal.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/C-Yassine_Faissal;V1.0.0.0;component/views/itemsview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/C-Yassine_Faissal;component/views/itemsview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\ItemsView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

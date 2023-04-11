@@ -5,6 +5,7 @@
         xmlns:vm="clr-namespace:C_Yassine_Faissal.ViewModels"
         xmlns:local="clr-namespace:C_Yassine_Faissal"
         Title="MainWindow" Height="450" Width="800">
+    
     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -12,45 +13,44 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             
-            <StackPanel Grid.Column="0" Background="Gray" Width="200">
-<TextBlock Text="Bibliotheekbeheer" FontSize="18" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="10" Height="28" Width="185" />
-                <Button x:Name="LogoutButton" Content="Logout" Margin="10" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left" Click="LogoutButton_Click"/>
-
-                <Separator Margin="10" />
-                <Expander x:Name="UsersExpander" Header="Users" Background="Transparent" Foreground="White" FontWeight="Bold">
-                    <StackPanel>
-                        <Button x:Name="CreateUserButton" Content="Create User" Margin="10" Click="CreateUserButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
-                        <Button x:Name="UpdateUserButton" Content="Update User" Margin="10" Click="UpdateUserButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
-                        <Button x:Name="DeleteUserButton" Content="Delete User" Margin="10" Click="DeleteUserButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
-                    </StackPanel>
-                </Expander>
-                <Expander x:Name="AuthorsExpander" Header="Authors" Background="Transparent" Foreground="White" FontWeight="Bold">
-                    <StackPanel>
-                        <Button x:Name="CreateAuthorButton" Content="Create Author" Margin="10" Click="CreateAuthorButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
-                        <Button x:Name="UpdateAuthorButton" Content="Update Author" Margin="10" Click="UpdateAuthorButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
-                        <Button x:Name="DeleteAuthorButton" Content="Delete Author" Margin="10" Click="DeleteAuthorButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
-                    </StackPanel>
-                </Expander>
-                <Expander x:Name="ItemsExpander" Header="Items" Background="Transparent" Foreground="White" FontWeight="Bold">
-                    <StackPanel>
-                        <Button x:Name="CreateItemButton" Content="Create Item" Margin="10" Click="CreateItemButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
-                        <Button x:Name="UpdateItemButton" Content="Update Item" Margin="10" Click="UpdateItemButton_Click_1" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
-                        <Button x:Name="DeleteItemButton" Content="Delete Item" Margin="10" Click="DeleteItemButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
-
-                    </StackPanel>
-                </Expander>
-                
-            </StackPanel>
-            <Grid x:Name="MainContent" Grid.Column="1">
+            <StackPanel Grid.Column="0" Background="#2C3E50" Width="200">
+    <TextBlock Text="Bibliotheekbeheer" FontSize="18" FontFamily="Segoe UI" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="10" Height="28" Width="185" />
+    <Button x:Name="LogoutButton" Content="Logout" Margin="10" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left" Click="LogoutButton_Click"/>
+    
+    <Separator Margin="10" />
+                <Expander x:Name="UsersExpander" Header="Users" FontFamily="Segoe UI"Background="Transparent" Foreground="White" FontWeight="Bold">
+        <StackPanel>
+            <Button x:Name="CreateUserButton" Content="Create User" Margin="10" Click="CreateUserButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+            <Button x:Name="UpdateUserButton" Content="Update User" Margin="10" Click="UpdateUserButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+            <Button x:Name="DeleteUserButton" Content="Delete User" Margin="10" Click="DeleteUserButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+        </StackPanel>
+    </Expander>
+                <Expander x:Name="AuthorsExpander" Header="Authors"FontFamily="Segoe UI" Background="Transparent" Foreground="White" FontWeight="Bold">
+        <StackPanel>
+            <Button x:Name="CreateAuthorButton" Content="Create Author" Margin="10" Click="CreateAuthorButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+            <Button x:Name="UpdateAuthorButton" Content="Update Author" Margin="10" Click="UpdateAuthorButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+            <Button x:Name="DeleteAuthorButton" Content="Delete Author" Margin="10" Click="DeleteAuthorButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+        </StackPanel>
+    </Expander>
+                <Expander x:Name="ItemsExpander" Header="Items"FontFamily="Segoe UI" Background="Transparent" Foreground="White" FontWeight="Bold">
+        <StackPanel>
+            <Button x:Name="CreateItemButton" Content="Create Item" Margin="10" Click="CreateItemButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+            <Button x:Name="UpdateItemButton" Content="Update Item" Margin="10" Click="UpdateItemButton_Click_1" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+            <Button x:Name="DeleteItemButton" Content="Delete Item" Margin="10" Click="DeleteItemButton_Click" Background="Transparent" Foreground="White" BorderThickness="0" FontWeight="Bold" HorizontalAlignment="Left"/>
+        </StackPanel>
+    </Expander>
+</StackPanel>
+            <Grid x:Name="MainContent" Grid.Column="1" Background="#F5F5F5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                
+
                 <Popup x:Name="CrudPopup" Placement="Center">
                     <ContentControl x:Name="CrudContent" Margin="10" VerticalAlignment="Center"/>
                 </Popup>
             </Grid>
+
         </Grid>
     </ScrollViewer>
 </Window>
