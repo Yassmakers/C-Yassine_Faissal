@@ -9,8 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using C_Yassine_Faissal;
-using C_Yassine_Faissal.ViewModels;
 using System;
 using System.Diagnostics;
 using System.Windows;
