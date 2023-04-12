@@ -43,10 +43,11 @@
         </Grid.RowDefinitions>
 
         <Label Content="Email:" Grid.Row="0" FontFamily="Segoe UI" FontSize="14" Foreground="#333"/>
-        <TextBox x:Name="EmailTextBox" Grid.Row="1" Margin="10,0,10,5" FontFamily="Segoe UI" FontSize="14" TextChanged="EmailTextBox_TextChanged"/>
+        <TextBox x:Name="EmailTextBox"  Grid.Row="1" Margin="10,0,10,16" FontFamily="Segoe UI" FontSize="14" TextChanged="EmailTextBox_TextChanged" BorderThickness="1" />
+
 
         <Label Content="Password:" Grid.Row="2" FontFamily="Segoe UI" FontSize="14" Foreground="#333"/>
-        <PasswordBox x:Name="PasswordTextBox" Grid.Row="3" Margin="10,0,10,16" FontFamily="Segoe UI" FontSize="14"/>
+        <PasswordBox x:Name="PasswordTextBox" Grid.Row="3" Margin="10,0,10,16" FontFamily="Segoe UI" FontSize="14" BorderThickness="1"/>
 
         <Button Content="Login" Grid.Row="3" HorizontalAlignment="Center" Margin="0,42,0,-33" Click="LoginButton_Click" Width="100" Style="{StaticResource LoginButtonStyle}"/>
         <Button Content="Login as Guest" Command="{Binding GuestLoginCommand}"  Grid.Row="3" HorizontalAlignment="Center" Margin="0,91,0,-82" Width="150" Style="{StaticResource LoginButtonStyle}" Click="Button_Click"/>

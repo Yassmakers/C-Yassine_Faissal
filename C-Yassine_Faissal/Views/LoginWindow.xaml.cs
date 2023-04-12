@@ -65,12 +65,15 @@ namespace C_Yassine_Faissal
             {
                 EmailTextBox.ToolTip = "Invalid email";
                 EmailTextBox.BorderBrush = Brushes.Red;
+                EmailTextBox.BorderThickness = new Thickness(1);
             }
             else
             {
                 EmailTextBox.ToolTip = null;
                 EmailTextBox.ClearValue(Border.BorderBrushProperty);
+                EmailTextBox.ClearValue(Border.BorderThicknessProperty);
             }
+
         }
 
         private bool IsValidEmail(string email)
@@ -85,6 +88,7 @@ namespace C_Yassine_Faissal
                 return false;
             }
         }
+
 
     }
 }
