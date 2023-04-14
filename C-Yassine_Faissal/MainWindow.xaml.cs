@@ -68,8 +68,16 @@ namespace C_Yassine_Faissal
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Owner?.Show();
-            this.Close();
+            // Perform any necessary cleanup or logging out actions here
+
+            // Hide the current window
+            this.Hide();
+
+            // Create a new instance of the login window
+            LoginWindow loginWindow = new LoginWindow();
+
+            // Show the login window
+            loginWindow.Show();
         }
 
         // Methode om LoginWindow te tonen wanneer MainWindow wordt gesloten.

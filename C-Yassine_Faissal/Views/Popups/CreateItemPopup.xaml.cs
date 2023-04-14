@@ -25,5 +25,6 @@ namespace C_Yassine_Faissal.Views.Popups
             // Initialiseer de DataContext met de CreateItemPopupViewModel en de LibraryContext
             DataContext = new CreateItemPopupViewModel(libraryContext);
         }
+
     }
 }

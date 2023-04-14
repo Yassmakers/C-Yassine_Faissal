@@ -25,6 +25,7 @@ namespace C_Yassine_Faissal.ViewModels
         private string _email;
         private string _password;
 
+
         // Eigenschappen voor het ophalen en instellen van e-mail en wachtwoord.
         public string Email
         {
